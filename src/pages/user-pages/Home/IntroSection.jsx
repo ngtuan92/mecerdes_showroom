@@ -5,7 +5,8 @@ import {
     Typography,
     Box,
     Button,
-    useTheme
+    useTheme,
+    Paper
 } from '@mui/material';
 import {
     EmojiEvents,
@@ -13,25 +14,27 @@ import {
     DirectionsCar,
     LocationOn,
     VerifiedUser,
-    Support,
     Send
 } from '@mui/icons-material';
+import { BiSupport } from "react-icons/bi";
+
 
 const IntroSection = () => {
     const theme = useTheme();
 
     return (
         <Box sx={{ py: { xs: 6, md: 8 }, backgroundColor: '#f8f9fa' }}>
-            <Container maxWidth="lg">
-                <Grid container spacing={8}>
-                    <Grid item xs={12} md={6}>
-                        <Box>
+            <Container maxWidth="xl">
+                <Grid container spacing={6} alignItems="center" >
+                    <Grid item xs={12} lg={6} sx={{ display: 'flex', width: '100%', maxWidth: 800, marginRight: 15 }}>
+                        <Box sx={{ pr: { lg: 4 } }}>
                             <Typography
                                 variant="h3"
                                 component="h2"
                                 sx={{
                                     fontWeight: 'bold',
-                                    fontSize: { xs: '2.5rem', md: '3rem' },
+                                    color: '#000000ff',
+                                    fontSize: { xs: '2rem', lg: '2.7rem' },
                                     mb: 3,
                                     lineHeight: 1.2
                                 }}
@@ -42,7 +45,8 @@ const IntroSection = () => {
                             <Typography
                                 variant="h6"
                                 sx={{
-                                    fontSize: '1.1rem',
+                                    color: '#000000ff',
+                                    fontSize: '1.5rem',
                                     lineHeight: 1.6,
                                     mb: 4
                                 }}
@@ -54,7 +58,8 @@ const IntroSection = () => {
                                 variant="h4"
                                 sx={{
                                     fontWeight: 'bold',
-                                    fontSize: { xs: '1.8rem', md: '2.2rem' },
+                                    color: '#000000ff',
+                                    fontSize: { xs: '1.8rem', lg: '2.2rem' },
                                     mb: 3,
                                     lineHeight: 1.3
                                 }}
@@ -65,8 +70,8 @@ const IntroSection = () => {
                             <Typography
                                 variant="body1"
                                 sx={{
-                                    lineHeight: 1.8,
-                                    fontSize: '1rem',
+                                    color: '#000000ff',
+                                    fontSize: '1.5rem',
                                     mb: 3
                                 }}
                             >
@@ -76,8 +81,8 @@ const IntroSection = () => {
                             <Typography
                                 variant="body1"
                                 sx={{
-                                    lineHeight: 1.8,
-                                    fontSize: '1rem',
+                                    color: '#000000ff',
+                                    fontSize: '1.5rem',
                                     mb: 4
                                 }}
                             >
@@ -90,10 +95,15 @@ const IntroSection = () => {
                                 sx={{
                                     px: 4,
                                     py: 1.5,
-                                    fontSize: '1rem',
-                                    borderRadius: 1,
+                                    fontSize: '1.3rem',
+                                    fontWeight: 600,
+                                    borderRadius: 2,
                                     textTransform: 'none',
-                                    backgroundColor: theme.palette.primary.main
+                                    backgroundColor: '#000000ff',
+                                    '&:hover': {
+                                        backgroundColor: '#ffffffff',
+                                        color: '#000000ff',
+                                    }
                                 }}
                             >
                                 Tìm hiểu thêm
@@ -101,96 +111,224 @@ const IntroSection = () => {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
-                        <Grid container spacing={3}>
-                            <Grid item xs={6}>
-                                <Box sx={{ textAlign: 'center', py: 3 }}>
-                                    <EmojiEvents sx={{ fontSize: 50, mb: 2 }} />
-                                    <Typography
-                                        variant="h3"
-                                        sx={{
-                                            fontWeight: 'bold',
-                                            fontSize: '2.5rem',
-                                            mb: 1
-                                        }}
-                                    >
-                                        15+
-                                    </Typography>
-                                    <Typography
-                                        variant="body1"
-                                        sx={{ fontWeight: 500 }}
-                                    >
-                                        Năm kinh nghiệm
-                                    </Typography>
-                                </Box>
-                            </Grid>
+                    <Grid item xs={12} lg={6}>
+                        <Box sx={{
+                            pl: { lg: 2 },
+                            display: 'flex',
+                            justifyContent: 'center'
+                        }}>
+                            <Box sx={{ width: '100%', maxWidth: 500, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <Grid container spacing={3}>
+                                    <Grid item xs={6}>
+                                        <Paper
+                                            elevation={2}
+                                            sx={{
+                                                marginRight: '68px',
+                                                textAlign: 'center',
+                                                py: 4,
+                                                px: 2,
+                                                borderRadius: 3,
+                                                transition: 'transform 0.3s ease',
+                                                width: '100%',
+                                                maxWidth: 220,
+                                                height: 160,
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                '&:hover': {
+                                                    transform: 'translateY(-5px)',
+                                                    boxShadow: theme.shadows[4]
+                                                }
+                                            }}
+                                        >
+                                            <EmojiEvents sx={{
+                                                fontSize: 40,
+                                                color: '#000000ff',
+                                                mb: 1.5
+                                            }} />
+                                            <Typography
+                                                variant="h4"
+                                                sx={{
+                                                    fontWeight: 'bold',
+                                                    color: '#2c3e50',
+                                                    fontSize: '2rem',
+                                                    mb: 0.5
+                                                }}
+                                            >
+                                                15+
+                                            </Typography>
+                                            <Typography
+                                                variant="body1"
+                                                sx={{
+                                                    color: '#000000ff',
+                                                    fontWeight: 540,
+                                                    fontSize: '1rem'
+                                                }}
+                                            >
+                                                Năm kinh nghiệm
+                                            </Typography>
+                                        </Paper>
+                                    </Grid>
 
-                            <Grid item xs={6}>
-                                <Box sx={{ textAlign: 'center', py: 3 }}>
-                                    <Group sx={{ fontSize: 50, mb: 2 }} />
-                                    <Typography
-                                        variant="h3"
-                                        sx={{
-                                            fontWeight: 'bold',
-                                            fontSize: '2.5rem',
-                                            mb: 1
-                                        }}
-                                    >
-                                        10,000+
-                                    </Typography>
-                                    <Typography
-                                        variant="body1"
-                                        sx={{ fontWeight: 500 }}
-                                    >
-                                        Khách hàng tin tưởng
-                                    </Typography>
-                                </Box>
-                            </Grid>
+                                    <Grid item xs={6}>
+                                        <Paper
+                                            elevation={2}
+                                            sx={{
+                                                marginLeft: '20px',
+                                                textAlign: 'center',
+                                                py: 4,
+                                                px: 2,
+                                                borderRadius: 3,
+                                                transition: 'transform 0.3s ease',
+                                                width: '100%',
+                                                maxWidth: 220,
+                                                height: 160,
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                '&:hover': {
+                                                    transform: 'translateY(-5px)',
+                                                    boxShadow: theme.shadows[4]
+                                                }
+                                            }}
+                                        >
+                                            <Group sx={{
+                                                fontSize: 40,
+                                                color: '#000000ff',
+                                                mb: 1.5
+                                            }} />
+                                            <Typography
+                                                variant="h4"
+                                                sx={{
+                                                    fontWeight: 'bold',
+                                                    color: '#000000ff',
+                                                    fontSize: '2rem',
+                                                    mb: 0.5
+                                                }}
+                                            >
+                                                10,000+
+                                            </Typography>
+                                            <Typography
+                                                variant="body1"
+                                                sx={{
+                                                    color: '#000000ff',
+                                                    fontWeight: 500,
+                                                    fontSize: '1rem'
+                                                }}
+                                            >
+                                                Khách hàng tin tưởng
+                                            </Typography>
+                                        </Paper>
+                                    </Grid>
 
-                            <Grid item xs={6}>
-                                <Box sx={{ textAlign: 'center', py: 3 }}>
-                                    <DirectionsCar sx={{ fontSize: 50, mb: 2 }} />
-                                    <Typography
-                                        variant="h3"
-                                        sx={{
-                                            fontWeight: 'bold',
-                                            fontSize: '2.5rem',
-                                            mb: 1
-                                        }}
-                                    >
-                                        5,000+
-                                    </Typography>
-                                    <Typography
-                                        variant="body1"
-                                        sx={{fontWeight: 500 }}
-                                    >
-                                        Xe đã giao thành công
-                                    </Typography>
-                                </Box>
-                            </Grid>
+                                    <Grid item xs={6}>
+                                        <Paper
+                                            elevation={2}
+                                            sx={{
+                                                marginRight: '25px',
+                                                textAlign: 'center',
+                                                py: 4,
+                                                px: 2,
+                                                borderRadius: 3,
+                                                transition: 'transform 0.3s ease',
+                                                width: '100%',
+                                                maxWidth: 220,
+                                                height: 160,
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                '&:hover': {
+                                                    transform: 'translateY(-5px)',
+                                                    boxShadow: theme.shadows[4]
+                                                }
+                                            }}
+                                        >
+                                            <DirectionsCar sx={{
+                                                fontSize: 40,
+                                                color: '#000000ff',
+                                                mb: 1.5
+                                            }} />
+                                            <Typography
+                                                variant="h4"
+                                                sx={{
+                                                    fontWeight: 'bold',
+                                                    color: '#000000ff',
+                                                    fontSize: '2rem',
+                                                    mb: 0.5
+                                                }}
+                                            >
+                                                5,000+
+                                            </Typography>
+                                            <Typography
+                                                variant="body1"
+                                                sx={{
+                                                    color: '#000000ff',
+                                                    fontWeight: 500,
+                                                    fontSize: '1rem'
+                                                }}
+                                            >
+                                                Xe đã giao thành công
+                                            </Typography>
+                                        </Paper>
+                                    </Grid>
 
-                            <Grid item xs={6}>
-                                <Box sx={{ textAlign: 'center', py: 3 }}>
-                                    <LocationOn sx={{ fontSize: 50, mb: 2 }} />
-                                    <Typography
-                                        variant="h3"
-                                        sx={{
-                                            fontWeight: 'bold',
-                                            fontSize: '2.5rem',
-                                            mb: 1
-                                        }}
-                                    >
-                                        50+
-                                    </Typography>
-                                    <Typography
-                                        variant="body1"
-                                        sx={{ fontWeight: 500 }}
-                                    >
-                                        Showroom toàn quốc
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        </Grid>
+                                    <Grid item xs={6}>
+                                        <Paper
+                                            elevation={2}
+                                            sx={{
+                                                marginLeft: '25px',
+                                                textAlign: 'center',
+                                                py: 4,
+                                                px: 2,
+                                                borderRadius: 3,
+                                                transition: 'transform 0.3s ease',
+                                                width: '100%',
+
+                                                height: 160,
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                '&:hover': {
+                                                    transform: 'translateY(-5px)',
+                                                    boxShadow: theme.shadows[4]
+                                                }
+                                            }}
+                                        >
+                                            <LocationOn sx={{
+                                                fontSize: 40,
+                                                color: '#000000ff',
+                                                mb: 1.5
+                                            }} />
+                                            <Typography
+                                                variant="h4"
+                                                sx={{
+                                                    fontWeight: 'bold',
+                                                    color: '#000000ff',
+                                                    fontSize: '2rem',
+                                                    mb: 0.5
+                                                }}
+                                            >
+                                                50+
+                                            </Typography>
+                                            <Typography
+                                                variant="body1"
+                                                sx={{
+                                                    color: '#000000ff',
+                                                    fontWeight: 500,
+                                                    fontSize: '1rem'
+                                                }}
+                                            >
+                                                Showroom toàn quốc
+                                            </Typography>
+                                        </Paper>
+                                    </Grid>
+                                </Grid>
+                            </Box>
+                        </Box>
                     </Grid>
                 </Grid>
 
@@ -200,6 +338,7 @@ const IntroSection = () => {
                         textAlign="center"
                         sx={{
                             fontWeight: 'bold',
+                            color: '#000000ff',
                             mb: 6,
                             fontSize: { xs: '2rem', md: '2.5rem' }
                         }}
@@ -207,8 +346,8 @@ const IntroSection = () => {
                         Tại Sao Chọn Chúng Tôi?
                     </Typography>
 
-                    <Grid container spacing={6}>
-                        <Grid item xs={12} md={4}>
+                    <Grid container spacing={6} justifyContent={"center"}>
+                        <Grid item xs={12} md={4} sx={{ display: 'flex', width: '100%', maxWidth: 430 }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 3 }}>
                                 <Box
                                     sx={{
@@ -216,7 +355,7 @@ const IntroSection = () => {
                                         width: 60,
                                         height: 60,
                                         borderRadius: '50%',
-                                        backgroundColor: '#2c3e50',
+                                        backgroundColor: '#000000ff',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center'
@@ -237,7 +376,7 @@ const IntroSection = () => {
                                     </Typography>
                                     <Typography
                                         variant="body1"
-                                        sx={{  lineHeight: 1.7 }}
+                                        sx={{ fontSize: '1rem', lineHeight: 1.7 }}
                                     >
                                         Cam kết 100% xe chính hãng, đảm bảo chất lượng và nguồn gốc rõ ràng.
                                     </Typography>
@@ -245,7 +384,7 @@ const IntroSection = () => {
                             </Box>
                         </Grid>
 
-                        <Grid item xs={12} md={4}>
+                        <Grid item xs={12} md={4} sx={{ display: 'flex', width: '100%', maxWidth: 430 }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 3 }}>
                                 <Box
                                     sx={{
@@ -253,12 +392,16 @@ const IntroSection = () => {
                                         width: 60,
                                         height: 60,
                                         borderRadius: '50%',
+                                        backgroundColor: '#000000ff',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center'
                                     }}
                                 >
-                                    <Support sx={{ color: 'white', fontSize: 30 }} />
+                                    <Box
+                                        component={BiSupport}
+                                        sx={{ color: 'white', fontSize: 30 }}
+                                    />
                                 </Box>
                                 <Box>
                                     <Typography
@@ -273,7 +416,7 @@ const IntroSection = () => {
                                     </Typography>
                                     <Typography
                                         variant="body1"
-                                        sx={{lineHeight: 1.7 }}
+                                        sx={{ lineHeight: 1.7 }}
                                     >
                                         Tư vấn 24/7, hỗ trợ tài chính và dịch vụ hậu mãi trọn đời.
                                     </Typography>
@@ -281,7 +424,7 @@ const IntroSection = () => {
                             </Box>
                         </Grid>
 
-                        <Grid item xs={12} md={4}>
+                        <Grid item xs={12} md={4} sx={{ display: 'flex', width: '100%', maxWidth: 430 }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 3 }}>
                                 <Box
                                     sx={{
@@ -289,6 +432,7 @@ const IntroSection = () => {
                                         width: 60,
                                         height: 60,
                                         borderRadius: '50%',
+                                        backgroundColor: '#000000ff',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center'
@@ -309,7 +453,7 @@ const IntroSection = () => {
                                     </Typography>
                                     <Typography
                                         variant="body1"
-                                        sx={{lineHeight: 1.7 }}
+                                        sx={{ lineHeight: 1.7 }}
                                     >
                                         Thủ tục nhanh gọn, giá cả minh bạch, không phí ẩn.
                                     </Typography>

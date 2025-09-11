@@ -4,7 +4,8 @@ import {
   Container,
   useTheme,
   useMediaQuery,
-  IconButton
+  IconButton,
+  Button
 } from '@mui/material';
 import { PlayArrow, Pause } from '@mui/icons-material';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -32,7 +33,7 @@ const Banner = () => {
       id: 2,
       src: '/proj_images/vid-demo/The-G-Class-Experience-Center-in-Graz-Get-G-Proved-1080p-FHD[1080p-FHD]-(www.Download.Tube).mp4',
       poster: '/images/poster2.jpg',
-      title: 'Trải Nghiệm G-Class: Biểu Tượng Sức Mạnh Và Đẳng Cấp'
+      title: 'Trải Nghiệm G-Class Biểu Tượng Sức Mạnh Và Đẳng Cấp'
     },
   ];
 
@@ -118,7 +119,7 @@ const Banner = () => {
             height: 12,
           },
           '& .swiper-pagination-bullet-active': {
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: 'black',
             opacity: 1,
           },
         }}
@@ -130,13 +131,11 @@ const Banner = () => {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-
           loop={true}
           onSlideChange={handleSlideChange}
         >
           {videos.map((video, index) => (
             <SwiperSlide key={video.id}>
-
               <Box
                 sx={{
                   position: 'relative',
@@ -144,7 +143,6 @@ const Banner = () => {
                   height: '100%',
                 }}
               >
-              
                 <video
                   style={{
                     width: '100%',
@@ -160,10 +158,51 @@ const Banner = () => {
                     console.log('Lỗi tải video:', e.target.src);
                   }}
                 >
+
                   <source src={video.src} type="video/mp4" />
                   Trình duyệt của bạn không hỗ trợ video.
                 </video>
+                {currentSlideIndex === index && (
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: { xs: 80, md: 250 },
+                      left: { xs: 25, md: 90 },
+                      zIndex: 20,
+                      color: 'white',
+                      fontWeight: 550,
+                      fontSize: { xs: '1.2rem', md: '1.5rem', lg: '2.8rem' },
+                      textShadow: '0 2px 8px rgba(0,0,0,0.7)',
+                      maxWidth: { xs: '90%', md: '30%' },
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    {video.title}
 
+                  </Box>
+
+                )}
+
+                <Box sx={{
+                  position: 'absolute',
+                  bottom: { xs: 20, md: 180 },
+                  left: { xs: 25, md: 90 },
+                  border: '2px solid white',
+                  borderRadius: '6px',
+                }}>
+                  <Button sx={{
+                    width: '200px',
+                    color: 'white',
+                    borderColor: 'white',
+                    fontWeight: 550,
+                    fontSize: { xs: '0.7rem', md: '0.9rem', lg: '1rem' },
+                    padding: '10px',
+                    '&:hover': {
+                      backgroundColor: 'white',
+                      color: 'black',
+                    },
+                  }} variant="outlined" >Tìm hiểu thêm</Button>
+                </Box>
                 <Box
                   sx={{
                     position: 'absolute',
@@ -176,6 +215,7 @@ const Banner = () => {
                   }}
                 />
               </Box>
+
             </SwiperSlide>
           ))}
         </Swiper>

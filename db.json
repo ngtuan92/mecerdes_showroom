@@ -1,0 +1,102 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "full_name": "Administrator",
+            "password": "admin123",
+            "email": "admin@carshop.com",
+            "phone": "0123456789",
+            "role_id": 1,
+            "avatar": "https://i.pravatar.cc/300"
+        },
+        {
+            "id": 2,
+            "username": "Tuan",
+            "full_name": "Nguyen Tuan",
+            "password": "tuandaumoi2004",
+            "email": "tuan@gmail.com",
+            "phone": "0987654321",
+            "role_id": 2,
+            "avatar": "https://i.pravatar.cc/320"
+        },
+        {
+            "id": 3,
+            "username": "leminh",
+            "full_name": "Le Minh",
+            "password": "minh123456",
+            "email": "leminh@gmail.com",
+            "phone": "0987893546",
+            "role_id": 2,
+            "avatar": "https://i.pravatar.cc/300"
+        }
+    ],
+    "roles": [
+        {
+            "id": 1,
+            "name": "admin"
+        },
+        {
+            "id": 2,
+            "name": "user"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "Sedan"
+        },
+        {
+            "id": 2,
+            "name": "SUV"
+        },
+        {
+            "id": 3,
+            "name": "Convertible"
+        }
+    ],
+    "cars": [
+        {
+            "id": 1,
+            "name": "Mercedes-Benz C-Class",
+            "description": "Mercedes-Benz C-Class là dòng xe hạng sang cỡ nhỏ kết hợp giữa sự sang trọng, hiệu suất cao và công nghệ tiên tiến. Xe sở hữu thiết kế thanh lịch, nội thất tiện nghi và hàng loạt động cơ mạnh mẽ.",
+            "price": 1599000,
+            "image": "./public/proj_images/mecerdes-benz/sedan/c-class.png",
+            "category_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Mercedes-Benz GLE",
+            "description": "Mercedes-Benz GLE là mẫu SUV hạng sang cỡ trung, mang đến sự kết hợp hoàn hảo giữa sự thoải mái, hiệu suất và tính linh hoạt. Xe sở hữu nội thất rộng rãi, các tính năng an toàn tiên tiến và loạt động cơ mạnh mẽ.",
+            "price": 60000,
+            "image": "",
+            "category_id": 2
+        },
+        {
+            "id": 3,
+            "name": "Mercedes-Benz G-Class",
+            "description": "Mercedes-Benz G-Class là mẫu SUV hạng sang cỡ lớn, nổi bật với thiết kế vuông vức, mạnh mẽ và khả năng off-road vượt trội. Xe được trang bị nội thất sang trọng, công nghệ tiên tiến và động cơ mạnh mẽ.",
+            "price": 70000,
+            "image": "",
+            "category_id": 3
+        }
+    ],
+     "blogs": [
+    {
+      "id": 1,
+      "title": "Top 5 xe SUV đáng mua nhất 2024",
+      "content": "Bài viết về những mẫu SUV tốt nhất năm 2024...",
+      "author": "Admin",
+      "created_at": "2024-01-10T08:00:00Z",
+      "featured_image": "/images/blog-suv-2024.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Hướng dẫn bảo dưỡng xe định kỳ",
+      "content": "Cách bảo dưỡng xe để tăng tuổi thọ và hiệu suất...",
+      "author": "Expert",
+      "created_at": "2024-01-12T14:30:00Z",
+      "featured_image": "/images/blog-maintenance.jpg"
+    }
+  ]
+}

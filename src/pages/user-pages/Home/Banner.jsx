@@ -162,7 +162,6 @@ const Banner = () => {
                   <source src={video.src} type="video/mp4" />
                   Trình duyệt của bạn không hỗ trợ video.
                 </video>
-                {currentSlideIndex === index && (
                   <Box
                     sx={{
                       position: 'absolute',
@@ -178,10 +177,9 @@ const Banner = () => {
                     }}
                   >
                     {video.title}
-
                   </Box>
 
-                )}
+                
 
                 <Box sx={{
                   position: 'absolute',

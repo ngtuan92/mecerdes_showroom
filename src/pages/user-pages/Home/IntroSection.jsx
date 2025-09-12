@@ -51,7 +51,7 @@ const IntroSection = () => {
                                     mb: 4
                                 }}
                             >
-                                Đối tác tin cậy trong hành trình sở hữu chiếc xe mơ ước của bạn
+                                CarShow tự hào là hệ thống phân phối xe hơi chính hãng hàng đầu Việt Nam, đồng hành cùng hơn 10.000 khách hàng trong hành trình tìm kiếm chiếc xe mơ ước.
                             </Typography>
 
                             <Typography
@@ -369,14 +369,14 @@ const IntroSection = () => {
                                         sx={{
                                             fontWeight: 'bold',
                                             mb: 2,
-                                            fontSize: '1.3rem'
+                                            fontSize: '1.6rem'
                                         }}
                                     >
                                         Uy tín & Chất lượng
                                     </Typography>
                                     <Typography
                                         variant="body1"
-                                        sx={{ fontSize: '1rem', lineHeight: 1.7 }}
+                                        sx={{ fontSize: '1.2rem', lineHeight: 1.7 }}
                                     >
                                         Cam kết 100% xe chính hãng, đảm bảo chất lượng và nguồn gốc rõ ràng.
                                     </Typography>
@@ -409,14 +409,14 @@ const IntroSection = () => {
                                         sx={{
                                             fontWeight: 'bold',
                                             mb: 2,
-                                            fontSize: '1.3rem'
+                                            fontSize: '1.6rem'
                                         }}
                                     >
                                         Hỗ trợ toàn diện
                                     </Typography>
                                     <Typography
                                         variant="body1"
-                                        sx={{ lineHeight: 1.7 }}
+                                        sx={{ fontSize: '1.2rem', lineHeight: 1.7 }}
                                     >
                                         Tư vấn 24/7, hỗ trợ tài chính và dịch vụ hậu mãi trọn đời.
                                     </Typography>
@@ -446,14 +446,14 @@ const IntroSection = () => {
                                         sx={{
                                             fontWeight: 'bold',
                                             mb: 2,
-                                            fontSize: '1.3rem'
+                                            fontSize: '1.6rem'
                                         }}
                                     >
                                         Quy trình minh bạch
                                     </Typography>
                                     <Typography
                                         variant="body1"
-                                        sx={{ lineHeight: 1.7 }}
+                                        sx={{ fontSize: '1.2rem', lineHeight: 1.7 }}
                                     >
                                         Thủ tục nhanh gọn, giá cả minh bạch, không phí ẩn.
                                     </Typography>

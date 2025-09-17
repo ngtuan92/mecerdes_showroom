@@ -1,0 +1,362 @@
+import React, { useState } from 'react'
+import {
+    Box,
+    Container,
+    Paper,
+    TextField,
+    Button,
+    Typography,
+    Stack,
+    Divider,
+    Alert,
+    InputAdornment,
+    IconButton
+} from '@mui/material'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
+
+const Signup = () => {
+    const [form, setForm] = useState({
+        username: '',
+        full_name: '',
+        phone: '',
+        email: '',
+        address: '',
+        password: '',
+        confirmPassword: ''
+    })
+    const [show, setShow] = useState(false)
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
+
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setForm((prev) => ({ ...prev, [name]: value }))
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setError('')
+        setSuccess('')
+        if (
+            !form.username ||
+            !form.full_name ||
+            !form.phone ||
+            !form.email ||
+            !form.address ||
+            !form.password ||
+            !form.confirmPassword
+        ) {
+            setError('Vui lòng nhập đầy đủ thông tin')
+            return
+        }
+        if (form.password !== form.confirmPassword) {
+            setError('Mật khẩu xác nhận không khớp')
+            return
+        }
+        setSuccess('Đăng ký thành công!')
+    }
+
+    return (
+        <Box
+            sx={{
+                maxWidth: '100%',
+                minHeight: '100vh',
+                backgroundSize: 'cover',
+                backgroundImage: "url('/proj_images/auth/auth_3.jpg')",
+                backgroundPosition: 'bottom center',
+                backgroundRepeat: 'no-repeat',
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'column',
+            }}
+        >
+            <Container
+                maxWidth="xl"
+                sx={{
+                    display: 'flex',
+                    height: '100vh',
+                    justifyContent: 'flex-end',
+                    pl: { xs: 2, sm: 3, md: 6 }
+                }}
+            >
+                <Paper
+                    elevation={0}
+                    sx={{
+                        height: { xs: 'auto', sm: 520, md: 730 },
+                        width: { xs: '100%', sm: 420, md: 450 },
+                        p: { xs: 4, sm: 9 },
+                        py: { xs: 5, sm: 5 },
+                        ml: 0,
+                        borderRadius: 2,
+                        color: '#fff',
+                        background: 'rgba(255, 255, 255, 0.13)',
+                        border: '1px solid rgba(255,255,255,0.22)',
+                        boxShadow: '0 8px 30px rgba(0,0,0,0.35)',
+                        backdropFilter: 'blur(12px)',
+                        WebkitBackdropFilter: 'blur(10px)',
+                        marginTop: { xs: 2, md: 7 }
+                    }}
+                >
+                    <Typography variant="h4" fontWeight={700} gutterBottom sx={{ display: 'flex', justifyContent: 'center', mb: 2, paddingBottom: { xs: 0, md: 3 } }}>
+                        Đăng ký
+                    </Typography>
+
+                    <Box component="form" onSubmit={handleSubmit}>
+                        <Stack spacing={3.5}>
+                            <TextField
+                                fullWidth
+                                name="username"
+                                label="Tài khoản"
+                                placeholder="Nhập tài khoản"
+                                value={form.username}
+                                onChange={handleChange}
+                                variant="outlined"
+                                InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                                inputProps={{ style: { color: '#fff' } }}
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
+                                        '&:hover fieldset': { borderColor: '#fff' },
+                                        '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                        background: 'rgba(255,255,255,0.06)',
+                                        borderRadius: 2,
+                                        height: 56
+                                    }
+                                }}
+                            />
+                            <Stack direction="row" spacing={2}>
+                                <TextField
+                                    name="full_name"
+                                    label="Họ và tên"
+                                    placeholder="Nhập họ và tên"
+                                    value={form.full_name}
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                    fullWidth
+                                    InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                                    inputProps={{ style: { color: '#fff' } }}
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
+                                            '&:hover fieldset': { borderColor: '#fff' },
+                                            '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                            background: 'rgba(255,255,255,0.06)',
+                                            borderRadius: 2,
+                                            height: 56
+                                        }
+                                    }}
+                                />
+                                <TextField
+                                    name="phone"
+                                    label="Số điện thoại"
+                                    placeholder="Nhập số điện thoại"
+                                    value={form.phone}
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                    fullWidth
+                                    InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                                    inputProps={{ style: { color: '#fff' } }}
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
+                                            '&:hover fieldset': { borderColor: '#fff' },
+                                            '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                            background: 'rgba(255,255,255,0.06)',
+                                            borderRadius: 2,
+                                            height: 56
+                                        }
+                                    }}
+                                />
+                            </Stack>
+                            <TextField
+                                fullWidth
+                                name="email"
+                                label="Email"
+                                placeholder="Nhập email"
+                                value={form.email}
+                                onChange={handleChange}
+                                variant="outlined"
+                                InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                                inputProps={{ style: { color: '#fff' } }}
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
+                                        '&:hover fieldset': { borderColor: '#fff' },
+                                        '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                        background: 'rgba(255,255,255,0.06)',
+                                        borderRadius: 2,
+                                        height: 56
+                                    }
+                                }}
+                            />
+                            <TextField
+                                fullWidth
+                                name="address"
+                                label="Địa chỉ"
+                                placeholder="Nhập địa chỉ"
+                                value={form.address}
+                                onChange={handleChange}
+                                variant="outlined"
+                                InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                                inputProps={{ style: { color: '#fff' } }}
+                                sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                        '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
+                                        '&:hover fieldset': { borderColor: '#fff' },
+                                        '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                        background: 'rgba(255,255,255,0.06)',
+                                        borderRadius: 2,
+                                        height: 56
+                                    }
+                                }}
+                            />
+                            <Stack direction="row" spacing={2}>
+                                <TextField
+                                    fullWidth
+                                    name="password"
+                                    label="Mật khẩu"
+                                    placeholder="Nhập mật khẩu"
+                                    type={show ? 'text' : 'password'}
+                                    value={form.password}
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                    InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                                    InputProps={{
+                                        style: { color: '#fff' },
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton sx={{ color: 'white' }}
+                                                    aria-label={show ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
+                                                    onClick={() => setShow((s) => !s)}
+                                                    onMouseDown={(e) => e.preventDefault()}
+                                                    edge="end"
+                                                >
+                                                    {show ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.35)' },
+                                            '&:hover fieldset': { borderColor: '#fff' },
+                                            '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                            background: 'rgba(255,255,255,0.06)',
+                                            borderRadius: 2,
+                                            height: 56
+                                        }
+                                    }}
+                                />
+                                <TextField
+                                    fullWidth
+                                    name="confirmPassword"
+                                    label="Xác nhận mật khẩu"
+                                    placeholder="Nhập lại mật khẩu"
+                                    type={show ? 'text' : 'password'}
+                                    value={form.confirmPassword}
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                    InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                                    InputProps={{
+                                        style: { color: '#fff' },
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton sx={{ color: 'white' }}
+                                                    aria-label={show ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
+                                                    onClick={() => setShow((s) => !s)}
+                                                    onMouseDown={(e) => e.preventDefault()}
+                                                    edge="end"
+                                                >
+                                                    {show ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                    sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                            '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.35)' },
+                                            '&:hover fieldset': { borderColor: '#fff' },
+                                            '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                            background: 'rgba(255,255,255,0.06)',
+                                            borderRadius: 2,
+                                            height: 56
+                                        }
+                                    }}
+                                />
+                            </Stack>
+
+                            {error && (
+                                <Alert severity="error" sx={{ mt: 2, fontSize: 16, textAlign: 'center' }}>
+                                    {error}
+                                </Alert>
+                            )}
+                            {success && (
+                                <Alert severity="success" sx={{ mt: 2, fontSize: 16, textAlign: 'center' }}>
+                                    {success}
+                                </Alert>
+                            )}
+
+                            <Button
+                                type="submit"
+                                size="large"
+                                variant="contained"
+                                sx={{
+                                    py: 1.5,
+                                    borderRadius: 2,
+                                    fontWeight: 700,
+                                    letterSpacing: 0.4,
+                                    background: '#242636',
+                                    boxShadow: '0 8px 20px rgba(62, 54, 121, 0.35)',
+                                    '&:hover': {
+                                        background: '#303346ff',
+                                        transform: 'translateY(-1px)',
+                                    }
+                                }}
+                            >
+                                Đăng ký
+                            </Button>
+                        </Stack>
+                    </Box>
+
+                    <Box sx={{ my: 4 }}>
+                        <Divider sx={{
+                            borderColor: 'rgba(255,255,255,0.3)',
+                            '&::before, &::after': {
+                                borderColor: 'rgba(255,255,255,0.3)',
+                            }
+                        }}>
+                            <Typography variant="body2" sx={{
+                                color: 'rgba(255,255,255,0.8)',
+                                px: 2,
+                                fontSize: '14px'
+                            }}>
+                                hoặc
+                            </Typography>
+                        </Divider>
+                    </Box>
+
+                    <Box sx={{ mt: 4, textAlign: 'center' }}>
+                        <Typography
+                            component="a"
+                            href="/login"
+                            sx={{
+                                color: 'rgba(255,255,255,0.8)',
+                                textDecoration: 'none',
+                                fontSize: '14px',
+                                fontWeight: 600,
+                                '&:hover': {
+                                    color: '#fff',
+                                    textDecoration: 'underline',
+                                }
+                            }}
+                        >
+                            Đã có tài khoản? Đăng nhập
+                        </Typography>
+                    </Box>
+                </Paper>
+            </Container>
+        </Box>
+    )
+}
+
+export default Signup

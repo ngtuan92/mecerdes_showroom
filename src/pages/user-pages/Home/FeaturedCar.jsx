@@ -12,7 +12,7 @@ import {
     Skeleton
 } from '@mui/material'
 import React, { useEffect, useState, useCallback } from 'react'
-import { getCars } from '../../../services/user-services/CarApi'
+import { getCars } from '../../../services/carApi'
 
 const FeaturedCar = () => {
     const [cars, setCars] = useState([]);
@@ -40,7 +40,7 @@ const FeaturedCar = () => {
 
     if (loading) {
         return (
-            <Box sx={{ py: { xs: 6, md: 8 }, backgroundColor: '#f8f9fa' }}>
+            <Box sx={{ py: { xs: 6, md: 8 } }}>
                 <Container maxWidth="xl">
                     <Box mt={4} mb={7}>
                         <Skeleton variant="text" width="40%" height={60} sx={{ mx: 'auto', mb: 3 }} />
@@ -60,7 +60,7 @@ const FeaturedCar = () => {
 
     if (error) {
         return (
-            <Box sx={{ py: { xs: 6, md: 8 }, backgroundColor: '#f8f9fa' }}>
+            <Box sx={{ py: { xs: 6, md: 8 } }}>
                 <Container maxWidth="xl">
                     <Typography variant="h5" textAlign="center" color="error">
                         Không thể tải dữ liệu xe. Vui lòng thử lại sau.
@@ -77,7 +77,7 @@ const FeaturedCar = () => {
 
     if (!cars || cars.length === 0) {
         return (
-            <Box sx={{ py: { xs: 6, md: 8 }, backgroundColor: '#f8f9fa' }}>
+            <Box sx={{ py: { xs: 6, md: 8 } }}>
                 <Container maxWidth="xl">
                     <Typography variant="h5" textAlign="center">
                         Hiện tại chưa có xe nào được hiển thị.
@@ -88,7 +88,7 @@ const FeaturedCar = () => {
     }
 
     return (
-        <Box sx={{ py: { xs: 6, md: 8 }, backgroundColor: '#f8f9fa' }}>
+        <Box sx={{ py: { xs: 6, md: 8 } }}>
             <Container maxWidth="xl">
                 <Box mt={4} mb={7}>
                     <Typography

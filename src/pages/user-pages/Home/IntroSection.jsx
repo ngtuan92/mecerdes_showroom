@@ -23,7 +23,7 @@ const IntroSection = () => {
     const theme = useTheme();
 
     return (
-        <Box sx={{ py: { xs: 6, md: 8 }, backgroundColor: '#f8f9fa' }}>
+        <Box sx={{ py: { xs: 6, md: 8 } }}>
             <Container maxWidth="xl">
                 <Grid container spacing={6} alignItems="center" >
                     <Grid item xs={12} lg={6} sx={{ display: 'flex', width: '100%', maxWidth: 800, marginRight: 15 }}>

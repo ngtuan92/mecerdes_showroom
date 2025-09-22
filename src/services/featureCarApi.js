@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const API_URL = 'http://localhost:9999/cars';
+export const API_URL = 'http://localhost:9999/featured_cars';
 
-export const getCars = async () => {
+export const getFeatureCars = async () => {
   try {
     const response = await axios.get(API_URL);
     console.log('Fetched cars:', response.data);

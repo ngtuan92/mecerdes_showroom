@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { use } from 'react'
 import { Box, Button, Card, CardMedia, Container, Grid, Paper, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom';
 
-const AbouUs = () => {
+const AboutUs = () => {
+
+    const navigate = useNavigate();
     return (
         <Container maxWidth="xl">
             <Grid container spacing={2}>
@@ -42,6 +45,7 @@ const AbouUs = () => {
                                         color: '#000000ff',
                                     }
                                 }}
+                                onClick={() => navigate("/aboutus")}
                             >
                                 Tìm hiểu thêm
                             </Button>
@@ -53,4 +57,4 @@ const AbouUs = () => {
     )
 }
 
-export default AbouUs
+export default AboutUs

@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { API_URL } from '../services/authApi';
 import { jwtDecode } from 'jwt-decode';
-
+import authApi from '../services/authApi';
 
 export const AuthContext = createContext();
 
@@ -22,58 +22,43 @@ export const AuthProvider = ({ children }) => {
 
     const login = async ({ username, password }) => {
         try {
-            const response = await fetch(`${API_URL}/users`);
-            const users = await response.json();
-
-            const foundUser = users.find(
-                (user) => user.username === username && user.password === password
-            );
+            const foundUser = await authApi.login({ username, password });
 
             if (foundUser) {
                 setUser(foundUser);
                 setIsAuthenticated(true);
                 localStorage.setItem('user', JSON.stringify(foundUser));
                 return { success: true, user: foundUser };
-            } else {
-                return { success: false, message: 'Tên đăng nhập hoặc mật khẩu không đúng' };
             }
         } catch (error) {
             console.error('Login error:', error);
-            return { success: false, message: 'Server error' };
+            return {
+                success: false,
+                message: error.message || 'Đăng nhập thất bại, vui lòng thử lại'
+            };
         }
     };
 
-    const signup = async (username, full_name, phone, email, address, password) => {
+    const signup = async (userData) => {
         try {
-            const response = await fetch(`${API_URL}/users`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username,
-                    full_name,
-                    phone,
-                    email,
-                    address,
-                    password
-                })
-            });
+            const newUser = await authApi.signup(
+                userData.username,
+                userData.full_name,
+                userData.phone,
+                userData.email,
+                userData.address,
+                userData.password
+            );
 
-            if (response.ok) {
-                const newUser = await response.json();
-                setUser(newUser);
-                setIsAuthenticated(true);
-                localStorage.setItem('user', JSON.stringify(newUser));
-                return { success: true, user: newUser };
-            } else {
-                return { success: false, message: 'Signup failed' };
-            }
+            return { success: true, user: newUser };
         } catch (error) {
-            error('Signup error:', error);
-            return { success: false, message: 'Server error' };
+            console.error('Signup error:', error);
+            return {
+                success: false,
+                message: error.message || 'Đăng ký thất bại, vui lòng thử lại'
+            };
         }
-    }
+    };
 
     const logout = () => {
         setUser(null);
@@ -90,7 +75,7 @@ export const AuthProvider = ({ children }) => {
                 id: decoded.sub,
                 name: decoded.name,
                 email: decoded.email,
-                role: 'USER',
+                role_id: 2, 
                 provider: 'google'
             };
 
@@ -105,7 +90,6 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    // Kiểm tra quyền admin
     const isAdmin = () => {
         return user && user.role_id === 1;
     };
@@ -118,6 +102,7 @@ export const AuthProvider = ({ children }) => {
                 loginWithGoogle,
                 login,
                 logout,
+                signup,
                 isAdmin,
                 loading
             }}

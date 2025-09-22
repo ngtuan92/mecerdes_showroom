@@ -12,7 +12,7 @@ import {
     Skeleton
 } from '@mui/material'
 import React, { useEffect, useState, useCallback } from 'react'
-import { getCars } from '../../../services/carApi'
+import { getFeatureCars } from '../../../services/featureCarApi'
 
 const FeaturedCar = () => {
     const [cars, setCars] = useState([]);
@@ -23,7 +23,7 @@ const FeaturedCar = () => {
         try {
             setLoading(true);
             setError(false);
-            const carData = await getCars();
+            const carData = await getFeatureCars();
             setCars(Array.isArray(carData) ? carData : []);
         } catch (error) {
             console.error('Error fetching cars:', error);

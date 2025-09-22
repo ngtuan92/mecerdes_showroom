@@ -16,6 +16,7 @@ import GoogleIcon from '@mui/icons-material/Google'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthContext'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
+import AuthLayout from '../../../layouts/user-layouts/AuthLayout'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -86,234 +87,235 @@ const Login = () => {
   }
 
   return (
-    <Box
-      sx={{
-        maxWidth: '100%',
-        minHeight: '100vh',
-        backgroundSize: 'cover',
-        backgroundImage: "url('/proj_images/auth/auth_3.jpg')",
-        backgroundPosition: 'bottom center',
-        backgroundRepeat: 'no-repeat',
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
-    >
-      <Container
-        maxWidth="xl"
+    <AuthLayout>
+      <Box
         sx={{
+          maxWidth: '100%',
+          backgroundSize: 'cover',
+          backgroundImage: "url('/proj_images/auth/auth_3.jpg')",
+          backgroundPosition: 'bottom center',
+          backgroundRepeat: 'no-repeat',
           display: 'flex',
-          height: '100vh',
-          justifyContent: 'flex-end',
-          pl: { xs: 2, sm: 3, md: 6 }
-
+          alignItems: 'center',
+          flexDirection: 'column',
         }}
       >
-        <Paper
-          elevation={0}
+        <Container
+          maxWidth="xl"
           sx={{
-            height: { xs: 'auto', sm: 520, md: 560 },
-            width: { xs: '100%', sm: 420, md: 450 },
-            p: { xs: 4, sm: 9 },
-            py: { xs: 5, sm: 5 },
-            ml: 0,
-            borderRadius: 2,
-            color: '#fff',
-            background: 'rgba(255, 255, 255, 0.16)',
-            border: '1px solid rgba(255,255,255,0.22)',
-            boxShadow: '0 8px 30px rgba(0,0,0,0.35)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(10px)',
-            marginTop: { xs: 2, md: 7 }
+            display: 'flex',
+            height: '100vh',
+            justifyContent: 'flex-end',
+            pl: { xs: 2, sm: 3, md: 6 }
 
           }}
         >
-          <Typography variant="h4" fontWeight={700} gutterBottom sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-            Đăng nhập
-          </Typography>
-          <Typography variant="body1" sx={{ opacity: 0.9, mb: 4, display: 'flex', justifyContent: 'center' }}>
-            Chào mừng bạn trở lại
-          </Typography>
+          <Paper
+            elevation={0}
+            sx={{
+              height: { xs: 'auto', sm: 520, md: 560 },
+              width: { xs: '100%', sm: 420, md: 450 },
+              p: { xs: 4, sm: 9 },
+              py: { xs: 5, sm: 5 },
+              ml: 0,
+              borderRadius: 2,
+              color: '#fff',
+              background: 'rgba(255, 255, 255, 0.16)',
+              border: '1px solid rgba(255,255,255,0.22)',
+              boxShadow: '0 8px 30px rgba(0,0,0,0.35)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              marginTop: { xs: 2, md: 7 }
 
-          <Box component="form" onSubmit={handleSubmit}>
-            <Stack spacing={3.5}>
-              <TextField
-                fullWidth
-                name="username"
-                label="Tài khoản"
-                placeholder="Nhập tài khoản"
-                value={form.username}
-                onChange={handleChange}
-                variant="outlined"
-                InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
-                inputProps={{ style: { color: '#fff' } }}
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
-                    '&:hover fieldset': { borderColor: '#fff' },
-                    '&.Mui-focused fieldset': { borderColor: '#fff' },
-                    '&.label': { color: '#fff' },
-                    '& label.Mui-focused': {
-                      color: '#fff',
-                    },
-                    background: 'rgba(255,255,255,0.06)',
-                    borderRadius: 2,
-                    height: 56
-                  }
-                }}
-              />
+            }}
+          >
+            <Typography variant="h4" fontWeight={700} gutterBottom sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+              Đăng nhập
+            </Typography>
+            <Typography variant="body1" sx={{ opacity: 0.9, mb: 4, display: 'flex', justifyContent: 'center' }}>
+              Chào mừng bạn trở lại
+            </Typography>
 
-              <TextField
-                fullWidth
-                name="password"
-                label="Mật khẩu"
-                placeholder="Nhập mật khẩu"
-                type={show ? 'text' : 'password'}
-                value={form.password}
-                onChange={handleChange}
-                variant="outlined"
-                InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
-                InputProps={{
-                  style: { color: '#fff' },
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton sx={{ color: 'white' }}
-                        aria-label={show ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
-                        onClick={() => setShow((s) => !s)}
-                        onMouseDown={(e) => e.preventDefault()}
-                        edge="end"
-                      >
-                        {show ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.35)' },
-                    '&:hover fieldset': { borderColor: '#fff' },
-                    '&.Mui-focused fieldset': { borderColor: '#fff' },
-                    '&.label': { color: '#fff' },
-                    '& label.Mui-focused': {
-                      color: '#fff'
-                    },
-                    background: 'rgba(255,255,255,0.06)',
-                    borderRadius: 2,
-                    height: 56
-                  }
-                }}
-              />
-
-              {error && (
-                <Alert severity="error" sx={{ mt: 2, fontSize: 16, textAlign: 'center' }}>
-                  {error}
-                </Alert>
-              )}
-
-              <Button
-                type="submit"
-                size="large"
-                variant="contained"
-                onClick={handleLogin}
-                sx={{
-                  py: 1.5,
-                  borderRadius: 2,
-                  fontWeight: 700,
-                  letterSpacing: 0.4,
-                  background: '#242636',
-                  boxShadow: '0 8px 20px rgba(62, 54, 121, 0.35)',
-                  '&:hover': {
-                    background: '#303346ff',
-                    transform: 'translateY(-1px)',
-                  }
-                }}
-              >
-                Đăng nhập
-              </Button>
-
-              <Box sx={{ textAlign: 'left', mt: -2 }}>
-                <Typography
-                  component="a"
-                  href="#"
+            <Box component="form" onSubmit={handleSubmit}>
+              <Stack spacing={3.5}>
+                <TextField
+                  fullWidth
+                  name="username"
+                  label="Tài khoản"
+                  placeholder="Nhập tài khoản"
+                  value={form.username}
+                  onChange={handleChange}
+                  variant="outlined"
+                  InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                  inputProps={{ style: { color: '#fff' } }}
                   sx={{
-                    color: 'rgba(255,255,255,0.8)',
-                    textDecoration: 'none',
-                    fontSize: '14px',
+                    '& .MuiOutlinedInput-root': {
+                      '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
+                      '&:hover fieldset': { borderColor: '#fff' },
+                      '&.Mui-focused fieldset': { borderColor: '#fff' },
+                      '&.label': { color: '#fff' },
+                      '& label.Mui-focused': {
+                        color: '#fff',
+                      },
+                      background: 'rgba(255,255,255,0.06)',
+                      borderRadius: 2,
+                      height: 56
+                    }
+                  }}
+                />
+
+                <TextField
+                  fullWidth
+                  name="password"
+                  label="Mật khẩu"
+                  placeholder="Nhập mật khẩu"
+                  type={show ? 'text' : 'password'}
+                  value={form.password}
+                  onChange={handleChange}
+                  variant="outlined"
+                  InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                  InputProps={{
+                    style: { color: '#fff' },
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton sx={{ color: 'white' }}
+                          aria-label={show ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
+                          onClick={() => setShow((s) => !s)}
+                          onMouseDown={(e) => e.preventDefault()}
+                          edge="end"
+                        >
+                          {show ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.35)' },
+                      '&:hover fieldset': { borderColor: '#fff' },
+                      '&.Mui-focused fieldset': { borderColor: '#fff' },
+                      '&.label': { color: '#fff' },
+                      '& label.Mui-focused': {
+                        color: '#fff'
+                      },
+                      background: 'rgba(255,255,255,0.06)',
+                      borderRadius: 2,
+                      height: 56
+                    }
+                  }}
+                />
+
+                {error && (
+                  <Alert severity="error" sx={{ mt: 2, fontSize: 16, textAlign: 'center' }}>
+                    {error}
+                  </Alert>
+                )}
+
+                <Button
+                  type="submit"
+                  size="large"
+                  variant="contained"
+                  onClick={handleLogin}
+                  sx={{
+                    py: 1.5,
+                    borderRadius: 2,
+                    fontWeight: 700,
+                    letterSpacing: 0.4,
+                    background: '#242636',
+                    boxShadow: '0 8px 20px rgba(62, 54, 121, 0.35)',
                     '&:hover': {
-                      color: '#fff',
-                      textDecoration: 'underline',
+                      background: '#303346ff',
+                      transform: 'translateY(-1px)',
                     }
                   }}
                 >
-                  Quên mật khẩu?
-                </Typography>
-              </Box>
-            </Stack>
-          </Box>
+                  Đăng nhập
+                </Button>
 
-          <Box sx={{ my: 4 }}>
-            <Divider sx={{
-              borderColor: 'rgba(255,255,255,0.3)',
-              '&::before, &::after': {
+                <Box sx={{ textAlign: 'left', mt: -2 }}>
+                  <Typography
+                    component="a"
+                    href="#"
+                    sx={{
+                      color: 'rgba(255,255,255,0.8)',
+                      textDecoration: 'none',
+                      fontSize: '14px',
+                      '&:hover': {
+                        color: '#fff',
+                        textDecoration: 'underline',
+                      }
+                    }}
+                  >
+                    Quên mật khẩu?
+                  </Typography>
+                </Box>
+              </Stack>
+            </Box>
+
+            <Box sx={{ my: 4 }}>
+              <Divider sx={{
                 borderColor: 'rgba(255,255,255,0.3)',
-              }
-            }}>
-              <Typography variant="body2" sx={{
-                color: 'rgba(255,255,255,0.8)',
-                px: 2,
-                fontSize: '14px'
+                '&::before, &::after': {
+                  borderColor: 'rgba(255,255,255,0.3)',
+                }
               }}>
-                hoặc
-              </Typography>
-            </Divider>
-          </Box>
+                <Typography variant="body2" sx={{
+                  color: 'rgba(255,255,255,0.8)',
+                  px: 2,
+                  fontSize: '14px'
+                }}>
+                  hoặc
+                </Typography>
+              </Divider>
+            </Box>
 
-          <Button
-            onClick={handleGoogleLogin}
-            variant="outlined"
-            fullWidth
-            startIcon={<GoogleIcon />}
-            sx={{
-              py: 1.5,
-              borderRadius: 2,
-              borderColor: 'rgba(255,255,255,0.35)',
-              color: '#fff',
-              fontWeight: 600,
-              background: 'rgba(255,255,255,0.05)',
-              '&:hover': {
-                borderColor: 'rgba(255,255,255,0.6)',
-                background: 'rgba(255,255,255,0.1)',
-                transform: 'translateY(-1px)',
-              },
-              '& .MuiSvgIcon-root': {
-                color: '#fff',
-              }
-            }}
-          >
-            Đăng nhập với Google
-          </Button>
-
-          <Box sx={{ mt: 4, textAlign: 'center' }}>
-            <Typography
-              component="a"
-              href="/signup"
+            <Button
+              onClick={handleGoogleLogin}
+              variant="outlined"
+              fullWidth
+              startIcon={<GoogleIcon />}
               sx={{
-                color: 'rgba(255,255,255,0.8)',
-                textDecoration: 'none',
-                fontSize: '14px',
+                py: 1.5,
+                borderRadius: 2,
+                borderColor: 'rgba(255,255,255,0.35)',
+                color: '#fff',
                 fontWeight: 600,
+                background: 'rgba(255,255,255,0.05)',
                 '&:hover': {
+                  borderColor: 'rgba(255,255,255,0.6)',
+                  background: 'rgba(255,255,255,0.1)',
+                  transform: 'translateY(-1px)',
+                },
+                '& .MuiSvgIcon-root': {
                   color: '#fff',
-                  textDecoration: 'underline',
                 }
               }}
             >
-              Chưa có tài khoản? Đăng ký
-            </Typography>
-          </Box>
-        </Paper>
-      </Container>
-    </Box>
+              Đăng nhập với Google
+            </Button>
+
+            <Box sx={{ mt: 4, textAlign: 'center' }}>
+              <Typography
+                component="a"
+                href="/signup"
+                sx={{
+                  color: 'rgba(255,255,255,0.8)',
+                  textDecoration: 'none',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  '&:hover': {
+                    color: '#fff',
+                    textDecoration: 'underline',
+                  }
+                }}
+              >
+                Chưa có tài khoản? Đăng ký
+              </Typography>
+            </Box>
+          </Paper>
+        </Container>
+      </Box>
+    </AuthLayout>
   )
 }
 

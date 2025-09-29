@@ -113,10 +113,7 @@ const Signup = () => {
                 sx={{
                     maxWidth: '100%',
                     minHeight: '100vh',
-                    backgroundSize: 'cover',
-                    backgroundImage: "url('/proj_images/auth/auth_3.jpg')",
-                    backgroundPosition: 'bottom center',
-                    backgroundRepeat: 'no-repeat',
+                    backgroundColor: '#ffffffff',
                     display: 'flex',
                     alignItems: 'center',
                     flexDirection: 'column',
@@ -134,14 +131,14 @@ const Signup = () => {
                     <Paper
                         elevation={0}
                         sx={{
-                            height: { xs: 'auto', sm: 520, md: 640 },
+                            height: { xs: 'auto', sm: 520, md: 670 },
                             width: { xs: '100%', sm: 420, md: 450 },
                             p: { xs: 4, sm: 9 },
                             py: { xs: 5, sm: 5 },
                             ml: 0,
                             borderRadius: 2,
-                            color: '#fff',
-                            background: 'rgba(255, 255, 255, 0.13)',
+                            color: '#000000ff',
+                            background: 'rgba(255, 255, 255, 0.16)', 
                             border: '1px solid rgba(255,255,255,0.22)',
                             boxShadow: '0 8px 30px rgba(0,0,0,0.35)',
                             backdropFilter: 'blur(12px)',
@@ -163,13 +160,13 @@ const Signup = () => {
                                     value={form.username}
                                     onChange={handleChange}
                                     variant="outlined"
-                                    InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
-                                    inputProps={{ style: { color: '#fff' } }}
+                                    InputLabelProps={{ style: { color: 'rgba(0, 0, 0, 0.9)' } }}
+                                    inputProps={{ style: { color: '#000000ff' } }}
                                     sx={{
                                         '& .MuiOutlinedInput-root': {
-                                            '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
-                                            '&:hover fieldset': { borderColor: '#fff' },
-                                            '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                            '& fieldset': { borderColor: 'rgba(120, 120, 120, 0.35)' },
+                                            '&:hover fieldset': { borderColor: '#000000ff' },
+                                            '&.Mui-focused fieldset': { borderColor: '#000000ff' },
                                             background: 'rgba(255,255,255,0.06)',
                                             borderRadius: 2,
                                             height: 56
@@ -185,13 +182,13 @@ const Signup = () => {
                                         onChange={handleChange}
                                         variant="outlined"
                                         fullWidth
-                                        InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
-                                        inputProps={{ style: { color: '#fff' } }}
+                                        InputLabelProps={{ style: { color: 'rgba(0, 0, 0, 0.9)' } }}
+                                        inputProps={{ style: { color: '#000000ff' } }}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
-                                                '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
-                                                '&:hover fieldset': { borderColor: '#fff' },
-                                                '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                                '& fieldset': { borderColor: 'rgba(120, 120, 120, 0.35)' },
+                                                '&:hover fieldset': { borderColor: '#000000ff' },
+                                                '&.Mui-focused fieldset': { borderColor: '#000000ff' },
                                                 background: 'rgba(255,255,255,0.06)',
                                                 borderRadius: 2,
                                                 height: 56
@@ -206,13 +203,13 @@ const Signup = () => {
                                         onChange={handleChange}
                                         variant="outlined"
                                         fullWidth
-                                        InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
-                                        inputProps={{ style: { color: '#fff' } }}
+                                        InputLabelProps={{ style: { color: 'rgba(0, 0, 0, 0.9)' } }}
+                                        inputProps={{ style: { color: '#000000ff' } }}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
-                                                '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
-                                                '&:hover fieldset': { borderColor: '#fff' },
-                                                '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                                '& fieldset': { borderColor: 'rgba(120, 120, 120, 0.35)' },
+                                                '&:hover fieldset': { borderColor: '#000000ff' },
+                                                '&.Mui-focused fieldset': { borderColor: '#000000ff' },
                                                 background: 'rgba(255,255,255,0.06)',
                                                 borderRadius: 2,
                                                 height: 56
@@ -228,13 +225,13 @@ const Signup = () => {
                                     value={form.email}
                                     onChange={handleChange}
                                     variant="outlined"
-                                    InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
-                                    inputProps={{ style: { color: '#fff' } }}
+                                    InputLabelProps={{ style: { color: 'rgba(0, 0, 0, 0.9)' } }}
+                                    inputProps={{ style: { color: '#000000ff' } }}
                                     sx={{
                                         '& .MuiOutlinedInput-root': {
-                                            '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
-                                            '&:hover fieldset': { borderColor: '#fff' },
-                                            '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                            '& fieldset': { borderColor: 'rgba(120, 120, 120, 0.35)' },
+                                            '&:hover fieldset': { borderColor: '#000000ff' },
+                                            '&.Mui-focused fieldset': { borderColor: '#000000ff' },
                                             background: 'rgba(255,255,255,0.06)',
                                             borderRadius: 2,
                                             height: 56
@@ -249,13 +246,13 @@ const Signup = () => {
                                     value={form.address}
                                     onChange={handleChange}
                                     variant="outlined"
-                                    InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
-                                    inputProps={{ style: { color: '#fff' } }}
+                                    InputLabelProps={{ style: { color: 'rgba(0, 0, 0, 0.9)' } }}
+                                    inputProps={{ style: { color: '#000000ff' } }}
                                     sx={{
                                         '& .MuiOutlinedInput-root': {
-                                            '& fieldset': { borderColor: 'rgba(255,255,255,0.35)' },
-                                            '&:hover fieldset': { borderColor: '#fff' },
-                                            '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                            '& fieldset': { borderColor: 'rgba(120, 120, 120, 0.35)' },
+                                            '&:hover fieldset': { borderColor: '#000000ff' },
+                                            '&.Mui-focused fieldset': { borderColor: '#000000ff' },
                                             background: 'rgba(255,255,255,0.06)',
                                             borderRadius: 2,
                                             height: 56
@@ -272,12 +269,12 @@ const Signup = () => {
                                         value={form.password}
                                         onChange={handleChange}
                                         variant="outlined"
-                                        InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                                        InputLabelProps={{ style: { color: 'rgba(0, 0, 0, 0.9)' } }}
                                         InputProps={{
-                                            style: { color: '#fff' },
+                                            style: { color: '#000000ff' },
                                             endAdornment: (
                                                 <InputAdornment position="end">
-                                                    <IconButton sx={{ color: 'white' }}
+                                                    <IconButton sx={{ color: 'rgba(120, 120, 120, 0.35)' }}
                                                         aria-label={show ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
                                                         onClick={() => setShow((s) => !s)}
                                                         onMouseDown={(e) => e.preventDefault()}
@@ -290,9 +287,9 @@ const Signup = () => {
                                         }}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
-                                                '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.35)' },
-                                                '&:hover fieldset': { borderColor: '#fff' },
-                                                '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                                '& fieldset': { borderColor: 'rgba(120, 120, 120, 0.35)' },
+                                                '&:hover fieldset': { borderColor: '#000000ff' },
+                                                '&.Mui-focused fieldset': { borderColor: '#000000ff' },
                                                 background: 'rgba(255,255,255,0.06)',
                                                 borderRadius: 2,
                                                 height: 56
@@ -308,12 +305,12 @@ const Signup = () => {
                                         value={form.confirmPassword}
                                         onChange={handleChange}
                                         variant="outlined"
-                                        InputLabelProps={{ style: { color: 'rgba(255,255,255,0.9)' } }}
+                                        InputLabelProps={{ style: { color: 'rgba(0, 0, 0, 0.9)' } }}
                                         InputProps={{
-                                            style: { color: '#fff' },
+                                            style: { color: '#000000ff' },
                                             endAdornment: (
                                                 <InputAdornment position="end">
-                                                    <IconButton sx={{ color: 'white' }}
+                                                    <IconButton sx={{ color: 'rgba(120, 120, 120, 0.35)' }}
                                                         aria-label={show ? "Ẩn mật khẩu" : "Hiện mật khẩu"}
                                                         onClick={() => setShow((s) => !s)}
                                                         onMouseDown={(e) => e.preventDefault()}
@@ -326,9 +323,9 @@ const Signup = () => {
                                         }}
                                         sx={{
                                             '& .MuiOutlinedInput-root': {
-                                                '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.35)' },
-                                                '&:hover fieldset': { borderColor: '#fff' },
-                                                '&.Mui-focused fieldset': { borderColor: '#fff' },
+                                                '& fieldset': { borderColor: 'rgba(120, 120, 120, 0.35)' },
+                                                '&:hover fieldset': { borderColor: '#000000ff' },
+                                                '&.Mui-focused fieldset': { borderColor: '#000000ff' },
                                                 background: 'rgba(255,255,255,0.06)',
                                                 borderRadius: 2,
                                                 height: 56
@@ -372,13 +369,13 @@ const Signup = () => {
 
                         <Box sx={{ my: 4 }}>
                             <Divider sx={{
-                                borderColor: 'rgba(255,255,255,0.3)',
+                                borderColor: 'rgba(120, 120, 120, 0.35)',
                                 '&::before, &::after': {
-                                    borderColor: 'rgba(255,255,255,0.3)',
+                                    borderColor: 'rgba(120, 120, 120, 0.35)',
                                 }
                             }}>
                                 <Typography variant="body2" sx={{
-                                    color: 'rgba(255,255,255,0.8)',
+                                    color: 'rgba(0, 0, 0, 0.8)',
                                     px: 2,
                                     fontSize: '14px'
                                 }}>
@@ -392,12 +389,12 @@ const Signup = () => {
                                 component="a"
                                 href="/login"
                                 sx={{
-                                    color: 'rgba(255,255,255,0.8)',
+                                    color: 'rgba(0, 0, 0, 0.8)',
                                     textDecoration: 'none',
                                     fontSize: '14px',
                                     fontWeight: 600,
                                     '&:hover': {
-                                        color: '#fff',
+                                        color: 'rgba(120, 120, 120, 0.35)',
                                         textDecoration: 'underline',
                                     }
                                 }}

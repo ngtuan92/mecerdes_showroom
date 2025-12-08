@@ -6,22 +6,20 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import SearchIcon from "@mui/icons-material/Search";
-import PersonIcon from "@mui/icons-material/Person";
-import LanguageIcon from "@mui/icons-material/Language";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import LogoutIcon from '@mui/icons-material/Logout';
 import Fade from '@mui/material/Fade';
 
 const Header = () => {
-  const menus = ["Các mẫu xe", "Mua", "Dịch vụ", "Thương hiệu"];
-  const [language, setLanguage] = React.useState("vi");
+  const navigate = useNavigate();
+  const menus = [
+    { label: "Các mẫu xe", path: "/danh-sach-san-pham" },
+    { label: "Dịch vụ", path: "/dich-vu" },
+    { label: "Về chúng tôi", path: "/ve-chung-toi" }
+  ];
   const [anchorEl, setAnchorEl] = useState(null);
 
   const [user, setUser] = useState(null);
@@ -50,13 +48,10 @@ const Header = () => {
     window.location.reload();
   };
 
-  const handleLanguageChange = (event) => {
-    setLanguage(event.target.value);
-  };
 
   return (
     <AppBar
-      position="static"
+      position="fixed"
       sx={{
         backgroundColor: "#000000",
         boxShadow: "none",
@@ -65,9 +60,6 @@ const Header = () => {
     >
       <Toolbar
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
           height: "100%",
           px: { xs: 2, md: 15 },
         }}
@@ -77,15 +69,16 @@ const Header = () => {
             display: "flex",
             gap: { xs: 2, md: 4 },
             flex: 1,
-            justifyContent: "flex-start"
           }}
         >
           {menus.map((item, index) => (
             <Button
+              component={RouterLink}
+              to={item.path}
               key={index}
               sx={{
                 color: "white",
-                fontSize: "18px",
+                fontSize: "16px",
                 fontWeight: 400,
                 textTransform: "none",
                 minWidth: "auto",
@@ -97,7 +90,7 @@ const Header = () => {
                 },
               }}
             >
-              {item}
+              {item.label}
             </Button>
           ))}
         </Box>
@@ -110,9 +103,9 @@ const Header = () => {
           }}
         >
           <img
-            src="../../../public/proj_images/logo/logo.jpg"
+            src="../../../public/proj_images/logo/logo.png"
             alt="Mercedes-Benz Logo"
-            onClick={() => window.location.href = '/'}
+            onClick={() => navigate('/')} 
             style={{
               height: 90,
               width: "auto",
@@ -140,47 +133,11 @@ const Header = () => {
             <SearchIcon />
           </IconButton>
 
-          <FormControl size="small">
-            <Select
-              value={language}
-              onChange={handleLanguageChange}
-              sx={{
-                color: "white",
-                fontSize: "14px",
-                "& .MuiOutlinedInput-notchedOutline": {
-                  border: "none"
-                },
-                "& .MuiSvgIcon-root": {
-                  color: "white"
-                },
-                "&:hover .MuiOutlinedInput-notchedOutline": {
-                  border: "none"
-                },
-                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  border: "1px solid #cccccc"
-                }
-              }}
-            >
-              <MenuItem value="vi">
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <LanguageIcon fontSize="small" />
-                  <Typography variant="body2">VI</Typography>
-                </Box>
-              </MenuItem>
-              <MenuItem value="en">
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <LanguageIcon fontSize="small" />
-                  <Typography variant="body2">EN</Typography>
-                </Box>
-              </MenuItem>
-            </Select>
-          </FormControl>
-
           {!isLoggedIn ? (
             <>
               <Button
                 component={RouterLink}
-                to="/login"
+                to="/dang-nhap"
                 sx={{
                   color: "white",
                   border: "1px solid #fff",
@@ -194,7 +151,7 @@ const Header = () => {
               </Button>
               <Button
                 component={RouterLink}
-                to="/signup"
+                to="/dang-ky"
                 sx={{
                   color: "white",
                   border: "1px solid #fff",
@@ -244,7 +201,7 @@ const Header = () => {
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
                 onClose={handleMenuClose}
-                TransitionComponent={Fade} 
+                TransitionComponent={Fade}
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
                 PaperProps={{
@@ -274,7 +231,7 @@ const Header = () => {
                     }
                   }}
                 >
-                
+
                   Hồ sơ cá nhân
                 </MenuItem>
                 <MenuItem
@@ -294,7 +251,7 @@ const Header = () => {
                     }
                   }}
                 >
-                  
+
                   Đăng xuất
                 </MenuItem>
               </Menu>

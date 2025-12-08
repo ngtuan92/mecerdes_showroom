@@ -102,7 +102,7 @@ const Login = () => {
           sx={{
             display: 'flex',
             height: '100vh',
-            justifyContent: 'flex-end',
+            justifyContent: 'center',
             pl: { xs: 2, sm: 3, md: 6 }
 
           }}

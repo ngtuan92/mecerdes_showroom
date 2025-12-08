@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import getCars from '../services/carsApi';
 
-const useCars = () => {
+export const useCars = () => {
     const [cars, setCars] = useState([]);
     const [loading, setLoading] = useState(true);
 

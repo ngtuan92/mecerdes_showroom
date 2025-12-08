@@ -23,18 +23,18 @@ const IntroSection = () => {
     const theme = useTheme();
 
     return (
-        <Box sx={{ py: { xs: 6, md: 8 } }}>
-            <Container maxWidth="xl">
-                <Grid container spacing={6} alignItems="center" >
-                    <Grid item xs={12} lg={6} sx={{ display: 'flex', width: '100%', maxWidth: 800, marginRight: 15 }}>
-                        <Box sx={{ pr: { lg: 4 } }}>
+        <Container>
+            <Box sx={{ py: { xs: 8, md: 15 } }}>
+                <Grid container spacing={2} alignItems="center">
+                    <Grid item size={{ xs: 12, md: 6 }}>
+                        <Box >
                             <Typography
                                 variant="h3"
                                 component="h2"
                                 sx={{
                                     fontWeight: 'bold',
                                     color: '#000000ff',
-                                    fontSize: { xs: '2rem', lg: '2.7rem' },
+                                    fontSize: { xs: '1rem', lg: '2rem' },
                                     mb: 3,
                                     lineHeight: 1.2
                                 }}
@@ -43,10 +43,10 @@ const IntroSection = () => {
                             </Typography>
 
                             <Typography
-                                variant="h6"
+                                variant="h3"
                                 sx={{
                                     color: '#000000ff',
-                                    fontSize: '1.5rem',
+                                    fontSize: '1.3rem',
                                     lineHeight: 1.6,
                                     mb: 4
                                 }}
@@ -55,11 +55,11 @@ const IntroSection = () => {
                             </Typography>
 
                             <Typography
-                                variant="h4"
+                                variant="h5"
                                 sx={{
                                     fontWeight: 'bold',
                                     color: '#000000ff',
-                                    fontSize: { xs: '1.8rem', lg: '2.2rem' },
+                                    fontSize: { xs: '1rem', lg: '2rem' },
                                     mb: 3,
                                     lineHeight: 1.3
                                 }}
@@ -71,7 +71,7 @@ const IntroSection = () => {
                                 variant="body1"
                                 sx={{
                                     color: '#000000ff',
-                                    fontSize: '1.5rem',
+                                    fontSize: '1.3rem',
                                     mb: 3
                                 }}
                             >
@@ -82,7 +82,7 @@ const IntroSection = () => {
                                 variant="body1"
                                 sx={{
                                     color: '#000000ff',
-                                    fontSize: '1.5rem',
+                                    fontSize: '1.3rem',
                                     mb: 4
                                 }}
                             >
@@ -111,11 +111,11 @@ const IntroSection = () => {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} lg={6}>
+                    <Grid item size={{ xs: 12, md: 6 }}>
                         <Box sx={{
                             pl: { lg: 2 },
                             display: 'flex',
-                            justifyContent: 'center'
+                            justifyContent: 'end'
                         }}>
                             <Box sx={{ width: '100%', maxWidth: 500, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <Grid container spacing={3}>
@@ -332,7 +332,7 @@ const IntroSection = () => {
                     </Grid>
                 </Grid>
 
-                <Box mt={8}>
+                <Box mt={20}>
                     <Typography
                         variant="h4"
                         textAlign="center"
@@ -347,7 +347,7 @@ const IntroSection = () => {
                     </Typography>
 
                     <Grid container spacing={6} justifyContent={"center"}>
-                        <Grid item xs={12} md={4} sx={{ display: 'flex', width: '100%', maxWidth: 430 }}>
+                        <Grid item size={{ xs: 12, md: 4 }} sx={{ display: 'flex', width: '100%', maxWidth: 430 }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 3 }}>
                                 <Box
                                     sx={{
@@ -384,7 +384,7 @@ const IntroSection = () => {
                             </Box>
                         </Grid>
 
-                        <Grid item xs={12} md={4} sx={{ display: 'flex', width: '100%', maxWidth: 430 }}>
+                        <Grid item size={{ xs: 12, md: 4 }} sx={{ display: 'flex', width: '100%', maxWidth: 430 }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 3 }}>
                                 <Box
                                     sx={{
@@ -424,7 +424,7 @@ const IntroSection = () => {
                             </Box>
                         </Grid>
 
-                        <Grid item xs={12} md={4} sx={{ display: 'flex', width: '100%', maxWidth: 430 }}>
+                        <Grid item size={{ xs: 12, md: 4 }} sx={{ display: 'flex', width: '100%', maxWidth: 430 }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 3 }}>
                                 <Box
                                     sx={{
@@ -462,8 +462,8 @@ const IntroSection = () => {
                         </Grid>
                     </Grid>
                 </Box>
-            </Container>
-        </Box>
+            </Box>
+        </Container>
     );
 };
 

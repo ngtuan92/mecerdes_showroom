@@ -14,14 +14,8 @@ import { useNavigate } from "react-router-dom";
 
 const HeaderAuth = () => {
     const menus = ["Đăng nhập", "Đăng ký"];
-    const [language, setLanguage] = React.useState("vi");
 
     const navigate = useNavigate();
-
-
-    const handleLanguageChange = (event) => {
-        setLanguage(event.target.value);
-    };
 
     return (
         <AppBar
@@ -66,8 +60,8 @@ const HeaderAuth = () => {
                                 },
                             }}
                             onClick={() => {
-                                if (item === "Đăng nhập") navigate("/login");
-                                if (item === "Đăng ký") navigate("/signup");
+                                if (item === "Đăng nhập") navigate("/dang-nhap");
+                                if (item === "Đăng ký") navigate("/dang-ky");
                             }}
                         >
                             {item}
@@ -83,7 +77,7 @@ const HeaderAuth = () => {
                     }}
                 >
                     <img
-                        src="../../../public/proj_images/logo/logo.jpg"
+                        src="../../../public/proj_images/logo/logo.png"
                         alt="Mercedes-Benz Logo"
                         onClick={() => window.location.href = '/'}
                         style={{
@@ -113,41 +107,7 @@ const HeaderAuth = () => {
                         <SearchIcon />
                     </IconButton>
 
-                    <FormControl size="small">
-                        <Select
-                            value={language}
-                            onChange={handleLanguageChange}
-                            sx={{
-                                color: "white",
-                                fontSize: "14px",
-                                "& .MuiOutlinedInput-notchedOutline": {
-                                    border: "none"
-                                },
-                                "& .MuiSvgIcon-root": {
-                                    color: "white"
-                                },
-                                "&:hover .MuiOutlinedInput-notchedOutline": {
-                                    border: "none"
-                                },
-                                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                                    border: "1px solid #cccccc"
-                                }
-                            }}
-                        >
-                            <MenuItem value="vi">
-                                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                    <LanguageIcon fontSize="small" />
-                                    <Typography variant="body2">VI</Typography>
-                                </Box>
-                            </MenuItem>
-                            <MenuItem value="en">
-                                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                    <LanguageIcon fontSize="small" />
-                                    <Typography variant="body2">EN</Typography>
-                                </Box>
-                            </MenuItem>
-                        </Select>
-                    </FormControl>
+                    
                 </Box>
             </Toolbar>
         </AppBar>

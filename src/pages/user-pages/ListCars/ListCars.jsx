@@ -97,7 +97,7 @@ const ListCars = () => {
 
     return (
         <MainLayout>
-            <Box sx={{ py: { xs: 4, md: 6 }, backgroundColor: '#f7f7f7', minHeight: '100vh' }}>
+            <Box sx={{ py: { xs: 4, md: 6 }, backgroundColor: '#f7f7f7', minHeight: '100vh', marginTop: '100px' }}>
                 <Container maxWidth="">
                     <Grid container spacing={3}>
                         <Grid size={3} item xs={12} md={3}>
@@ -116,11 +116,7 @@ const ListCars = () => {
                         </Grid>
 
                         <Grid size={9} item xs={12} md={9}>
-                            <Box display="flex" alignItems="center" justifyContent="space-between" mb={4}>
-                                <Typography variant="h4" fontWeight={700} sx={{ color: '#000000ff' }}>
-                                    Lựa chọn xe của bạn
-                                </Typography>
-
+                            <Box display="flex" alignItems="center" justifyContent="end" mb={4}>
                                 <Box display="flex" alignItems="center" gap={2}>
                                     <Typography sx={{ color: '#000000ff', fontSize: '17px', fontWeight: 500 }}>
                                         Xếp theo:

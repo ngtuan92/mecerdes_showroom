@@ -5,6 +5,7 @@ const HeroContainer = () => {
   return (
     <Box
       sx={{
+        marginTop: '100px',
         position: 'relative',
         minHeight: '90vh',
         background: 'linear-gradient(180deg, #000000 0%, #1a1a1a 50%, #000000 100%)',
@@ -26,6 +27,7 @@ const HeroContainer = () => {
     >
       <Box
         sx={{
+          
           position: 'absolute',
           top: 0,
           left: 0,

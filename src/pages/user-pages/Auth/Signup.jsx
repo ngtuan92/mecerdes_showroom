@@ -124,7 +124,8 @@ const Signup = () => {
                     sx={{
                         display: 'flex',
                         height: '100vh',
-                        justifyContent: 'flex-end',
+                        justifyContent: 'center',
+                        marginBottom: { xs: 4, md: 16 },
                         pl: { xs: 2, sm: 3, md: 6 }
                     }}
                 >

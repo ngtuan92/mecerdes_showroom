@@ -12,6 +12,8 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Fade from '@mui/material/Fade';
+import { MdOutlineAddShoppingCart } from "react-icons/md";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -135,34 +137,34 @@ const Header = () => {
 
           {!isLoggedIn ? (
             <>
-              <Button
-                component={RouterLink}
-                to="/dang-nhap"
+              <Box
+                onClick={() => navigate('/dang-nhap')}
                 sx={{
                   color: "white",
-                  border: "1px solid #fff",
-                  borderRadius: "20px",
-                  px: 2,
+                  cursor: "pointer",
+                  px: 1,
                   ml: 1,
-                  "&:hover": { backgroundColor: "#222" }
+                  "&:hover": { color: "#ccc" },
                 }}
               >
                 Đăng nhập
-              </Button>
-              <Button
-                component={RouterLink}
-                to="/dang-ky"
+              </Box>
+              <Box
+                onClick={() => navigate('/dang-ky')}
                 sx={{
                   color: "white",
-                  border: "1px solid #fff",
-                  borderRadius: "20px",
-                  px: 2,
+                  px: 1,
                   ml: 1,
-                  "&:hover": { backgroundColor: "#222" }
+                  cursor: "pointer",
+                  "&:hover": { color: "#ccc" },
                 }}
               >
                 Đăng ký
-              </Button>
+              </Box>
+              <ShoppingCartIcon sx={{
+                marginLeft: 1,
+                cursor: "pointer"
+                }} />
             </>
           ) : (
             <>

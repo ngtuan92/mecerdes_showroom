@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import CarProgressLoading from "./components/all-components/CarProgressLoading";
+import ShoppingCart from "./pages/user-pages/Cart/ShoppingCart";
 const HomePage = lazy(() => import("./pages/user-pages/Home/HomePage"));
 const Login = lazy(() => import("./pages/user-pages/Auth/Login"));
 const Signup = lazy(() => import("./pages/user-pages/Auth/Signup"));
@@ -19,6 +20,7 @@ function App() {
           <Route path="/ve-chung-toi" element={<AboutDetail />} />
           <Route path="/danh-sach-san-pham" element={<ListCars />} />
           <Route path="/san-pham/:name" element={<ProductDetail />} />
+          <Route path="/gio-hang" element={<ShoppingCart />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

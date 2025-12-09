@@ -9,6 +9,13 @@ const AboutDetail = lazy(() => import("./pages/user-pages/AboutUsDetail/AboutUsD
 const ListCars = lazy(() => import("./pages/user-pages/ListCars/ListCars"));
 const ProductDetail = lazy(() => import("./pages/user-pages/ProductDetail/productDetail"));
 
+// Admin pages
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const ManageUser = lazy(() => import("./pages/admin/ManageUser"));
+const ManageCar = lazy(() => import("./pages/admin/ManageCar"));
+const Profile = lazy(() => import("./pages/admin/Profile"));
+const ChangePassword = lazy(() => import("./pages/admin/ChanePassword"));
+
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +28,13 @@ function App() {
           <Route path="/danh-sach-san-pham" element={<ListCars />} />
           <Route path="/san-pham/:name" element={<ProductDetail />} />
           <Route path="/gio-hang" element={<ShoppingCart />} />
+
+          {/* Admin routes */}
+          <Route path="/admin/quan-tri" element={<Dashboard />} />
+          <Route path="/admin/quan-ly-nguoi-dung" element={<ManageUser />} />
+          <Route path="/admin/quan-ly-xe" element={<ManageCar />} />
+          <Route path="/admin/ho-so-ca-nhan" element={<Profile />} />
+          <Route path="/admin/doi-mat-khau" element={<ChangePassword />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

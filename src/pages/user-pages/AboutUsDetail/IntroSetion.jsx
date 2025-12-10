@@ -1,5 +1,4 @@
 import { Box, Grid, Paper, Typography, Button, Stack, Container } from '@mui/material'
-import React, { useEffect, useState } from 'react'
 
 const IntroSection = () => {
     const post = [

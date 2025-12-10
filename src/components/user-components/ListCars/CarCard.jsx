@@ -19,11 +19,11 @@ import {
 import { GiCarDoor } from "react-icons/gi";
 import ButtonLink from './ButtonLink';
 
-const CarCard = ({ car, favorites, onToggleFavorite, onViewDetails, formatVND }) => {
+const CarCard = ({ car, favorites, onToggleFavorite, formatVND }) => {
     return (
         <Card
             sx={{
-                height: 510, 
+                height: 510,
                 borderRadius: 4,
                 background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
                 color: 'white',
@@ -48,8 +48,8 @@ const CarCard = ({ car, favorites, onToggleFavorite, onViewDetails, formatVND })
                 }
             }}
         >
-            <Box sx={{ 
-                position: 'relative', 
+            <Box sx={{
+                position: 'relative',
                 background: 'linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%)',
                 p: 2.5,
                 height: 280
@@ -106,17 +106,17 @@ const CarCard = ({ car, favorites, onToggleFavorite, onViewDetails, formatVND })
                 </IconButton>
             </Box>
 
-            <CardContent sx={{ 
+            <CardContent sx={{
                 p: 3,
                 pt: 2.5,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2
             }}>
-                <Typography 
-                    variant="h6" 
+                <Typography
+                    variant="h6"
                     fontWeight={700}
-                    sx={{ 
+                    sx={{
                         color: '#ffffff',
                         fontSize: '1.2rem',
                         letterSpacing: '0.5px',
@@ -126,9 +126,9 @@ const CarCard = ({ car, favorites, onToggleFavorite, onViewDetails, formatVND })
                     {car.name}
                 </Typography>
 
-                <Box 
-                    display="flex" 
-                    alignItems="center" 
+                <Box
+                    display="flex"
+                    alignItems="center"
                     gap={2.5}
                     sx={{
                         pb: 2,
@@ -142,17 +142,17 @@ const CarCard = ({ car, favorites, onToggleFavorite, onViewDetails, formatVND })
                         </Typography>
                     </Box>
                     <Box display="flex" alignItems="center" gap={0.8}>
-                        <GiCarDoor style={{ fontSize: 18, color: 'rgba(255, 255, 255, 0.7)' }}/>
+                        <GiCarDoor style={{ fontSize: 18, color: 'rgba(255, 255, 255, 0.7)' }} />
                         <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.9)', fontWeight: 500 }}>
                             {car.doors}
                         </Typography>
                     </Box>
                     <Box display="flex" alignItems="center" gap={0.8}>
                         <Speed sx={{ fontSize: 18, color: 'rgba(255, 255, 255, 0.7)' }} />
-                        <Typography 
-                            variant="body2" 
-                            sx={{ 
-                                color: 'rgba(255, 255, 255, 0.9)', 
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                color: 'rgba(255, 255, 255, 0.9)',
                                 textTransform: 'capitalize',
                                 fontWeight: 500,
                                 fontSize: '0.875rem'
@@ -165,9 +165,9 @@ const CarCard = ({ car, favorites, onToggleFavorite, onViewDetails, formatVND })
 
                 <Box display="flex" alignItems="flex-end" justifyContent="space-between">
                     <Box>
-                        <Typography 
-                            variant="body2" 
-                            sx={{ 
+                        <Typography
+                            variant="body2"
+                            sx={{
                                 color: 'rgba(255, 255, 255, 0.6)',
                                 fontSize: '0.95rem',
                                 mb: 0.5,
@@ -178,10 +178,10 @@ const CarCard = ({ car, favorites, onToggleFavorite, onViewDetails, formatVND })
                         >
                             Giá
                         </Typography>
-                        <Typography 
-                            fontWeight={700} 
+                        <Typography
+                            fontWeight={700}
                             fontSize={20}
-                            sx={{ 
+                            sx={{
                                 color: '#ffffff',
                                 letterSpacing: '0.5px'
                             }}

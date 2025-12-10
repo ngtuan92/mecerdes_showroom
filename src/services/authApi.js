@@ -16,6 +16,7 @@ const login = async ({ username, password }) => {
             throw new Error("Tên đăng nhập hoặc mật khẩu không đúng");
         }
     } catch (error) {
+        console.error("Lỗi xảy ra:", error);
         throw error;
     }
 };
@@ -25,10 +26,12 @@ const signup = async (username, full_name, phone, email, address, password) => {
         const usersRes = await axios.get(`${API_URL}/users`);
         const users = usersRes.data;
 
+        // kiểm tra tên đăng nhập đã tồn tại chưa
         if (users.some(user => user.username === username)) {
             throw new Error("Tên đăng nhập đã tồn tại");
         }
 
+        // kiểm tra email đã được sử dụng chưa
         if (users.some(user => user.email === email)) {
             throw new Error("Email đã được sử dụng");
         }
@@ -46,6 +49,7 @@ const signup = async (username, full_name, phone, email, address, password) => {
 
         return response.data;
     } catch (error) {
+        console.error("Lỗi xảy ra:", error);
         throw error;
     }
 };

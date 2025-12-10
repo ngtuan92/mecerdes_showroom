@@ -1,5 +1,5 @@
-import React, { Suspense, lazy, useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CarProgressLoading from "./components/all-components/CarProgressLoading";
 import ShoppingCart from "./pages/user-pages/Cart/ShoppingCart";
 const HomePage = lazy(() => import("./pages/user-pages/Home/HomePage"));

@@ -133,7 +133,7 @@ const ProductDetail = () => {
                   overflow: 'hidden',
                   border: '1px solid #e0e0e0',
                   position: 'relative',
-                  
+
                 }}
               >
                 <Box
@@ -141,7 +141,7 @@ const ProductDetail = () => {
                     height: { xs: 350, md: 465 },
                     backgroundColor: '#f8f8f8',
                     position: 'relative'
-                    
+
                   }}
                 >
                   <Swiper
@@ -157,6 +157,9 @@ const ProductDetail = () => {
                         <Box
                           sx={{
                             height: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                             padding: 4
                           }}
                         >
@@ -218,7 +221,7 @@ const ProductDetail = () => {
                             transition: 'all 0.3s ease',
                             '&:hover': {
                               borderColor: '#1a1a1a',
-                              transform: 'scale(1.05)'
+
                             },
                           }}
                         >
@@ -465,8 +468,8 @@ const ProductDetail = () => {
                           transition: 'all 0.3s ease',
                         }}
                       >
-                        <MdOutlineAddShoppingCart style={{marginRight: '10px'}} />
-                          Thêm vào giỏ hàng
+                        <MdOutlineAddShoppingCart onClick={() => navigate('/gio-hang')} style={{ marginRight: '10px' }} />
+                        Thêm vào giỏ hàng
                       </Button>
                     </Grid>
                   </Grid>

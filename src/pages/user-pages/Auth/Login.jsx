@@ -193,7 +193,7 @@ const Login = () => {
                       '&.Mui-focused fieldset': { borderColor: '#000000ff' },
                       '&.label': { color: '#000000ff' },
                       '& label.Mui-focused': {
-                        color: '#000000ff'  
+                        color: '#000000ff'
                       },
                       background: 'rgba(255,255,255,0.06)',
                       borderRadius: 2,
@@ -294,7 +294,7 @@ const Login = () => {
             <Box sx={{ mt: 4, textAlign: 'center' }}>
               <Typography
                 component="a"
-                href="/signup"
+                href="/dang-ky"
                 sx={{
                   color: 'rgba(0, 0, 0, 0.8)',
                   textDecoration: 'none',

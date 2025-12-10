@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
@@ -12,6 +12,7 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Fade from '@mui/material/Fade';
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from "@mui/material";
 import { useCart } from '../../hooks/useCart';
@@ -26,9 +27,6 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [user, setUser] = useState(null);
 
-  const { getCartCount } = useCart();
-  const countCart = getCartCount();
-
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -39,6 +37,17 @@ const Header = () => {
   }, []);
 
   const isLoggedIn = !!user;
+
+  const suggestions = useMemo(() => {
+    if (!searchTerm.trim()) return [];
+    const term = searchTerm.toLowerCase();
+    return (cars || [])
+      .filter((car) =>
+        (car.name && car.name.toLowerCase().includes(term)) ||
+        (car.description && car.description.toLowerCase().includes(term))
+      )
+      .slice(0, 5);
+  }, [cars, searchTerm]);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -52,8 +61,6 @@ const Header = () => {
     setUser(null);
     window.location.reload();
   };
-
-
 
 
   return (
@@ -128,17 +135,33 @@ const Header = () => {
             alignItems: "center",
             gap: 2,
             flex: 1,
-            justifyContent: "flex-end"
+            justifyContent: "flex-end",
+            position: "relative"
           }}
         >
-          <IconButton
-            sx={{
-              color: "white",
-              "&:hover": { color: "#cccccc" }
-            }}
-          >
-            <SearchIcon />
-          </IconButton>
+          <Box sx={{ position: "relative" }}>
+            <IconButton
+              sx={{
+                color: "white",
+                "&:hover": { color: "#cccccc" }
+              }}
+              onClick={(e) => {
+                setSearchAnchor(e.currentTarget);
+                setSearchOpen((prev) => !prev);
+              }}
+            >
+              <SearchIcon />
+            </IconButton>
+            <SearchOverlay
+              open={searchOpen}
+              anchorEl={searchAnchor}
+              searchTerm={searchTerm}
+              onChange={setSearchTerm}
+              onClose={() => setSearchOpen(false)}
+              suggestions={suggestions}
+              onViewAll={handleViewAllResults}
+            />
+          </Box>
 
           {!isLoggedIn ? (
             <>

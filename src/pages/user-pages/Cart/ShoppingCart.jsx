@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainLayout from '../../../layouts/user-layouts/MainLayout';
 import {
@@ -25,27 +25,27 @@ import {
     FavoriteBorder,
     ArrowForward,
 } from '@mui/icons-material';
+import { useCart } from '../../../hooks/useCart';
 
 const CartShopee = () => {
     const navigate = useNavigate();
-    const [items, setItems] = useState([
-        {
-            id: 1,
-            name: 'Mercedes-Benz C-Class',
-            image: '/proj_images/mecerdes-benz/sedan/c-class.png',
-            price: 1590000000,
-            quantity: 1,
-            selected: true,
-        },
-        {
-            id: 2,
-            name: 'Mercedes-Benz E-Class',
-            image: '/proj_images/mecerdes-benz/sedan/e-class.png',
-            price: 2390000000,
-            quantity: 1,
-            selected: false,
-        },
-    ]);
+
+    const {
+        cartItems,
+        loading,
+        updateItemQuantity,
+        removeItem,
+        toggleItemSelection,
+        toggleAllSelection,
+        removeSelectedItems,
+        getSelectedCount,
+        getSelectedTotal,
+        isAllSelected,
+    } = useCart();
+
+    const items = cartItems;
+
+
 
     const recommendedCars = [
         {
@@ -98,39 +98,31 @@ const CartShopee = () => {
         },
     ];
 
-    const formatPrice = (p) =>
-        new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(p);
 
-    const allChecked = items.length > 0 && items.every((i) => i.selected);
-    const selectedCount = items.filter((i) => i.selected).length;
-    const total = items
-        .filter((i) => i.selected)
-        .reduce((s, i) => s + i.price * i.quantity, 0);
+    const formatPrice = (p) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(p);
+
+    const allChecked = isAllSelected();
+    const selectedCount = getSelectedCount();
+    const total = getSelectedTotal();
 
     const handleToggleAll = (checked) => {
-        setItems((prev) => prev.map((i) => ({ ...i, selected: checked })));
+        toggleAllSelection(checked);
     };
 
     const handleToggleOne = (id, checked) => {
-        setItems((prev) =>
-            prev.map((i) => (i.id === id ? { ...i, selected: checked } : i)),
-        );
+        toggleItemSelection(id, checked);
     };
 
-    const handleQtyChange = (id, qty) => {
-        setItems((prev) =>
-            prev.map((i) =>
-                i.id === id ? { ...i, quantity: Math.max(1, qty || 1) } : i,
-            ),
-        );
+    const handleQtyChange = async (id, qty) => {
+        await updateItemQuantity(id, Math.max(1, qty || 1));
     };
 
-    const handleRemoveOne = (id) => {
-        setItems((prev) => prev.filter((i) => i.id !== id));
+    const handleRemoveOne = async (id) => {
+        await removeItem(id);
     };
 
-    const handleRemoveSelected = () => {
-        setItems((prev) => prev.filter((i) => !i.selected));
+    const handleRemoveSelected = async () => {
+        await removeSelectedItems();
     };
 
     const handleCarClick = (car) => {
@@ -140,6 +132,7 @@ const CartShopee = () => {
 
     return (
         <MainLayout>
+
             <Box
                 sx={{
                     pt: { xs: 15, md: 20 },

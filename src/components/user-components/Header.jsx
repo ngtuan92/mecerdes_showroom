@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
@@ -12,8 +12,9 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import Menu from "@mui/material/Menu";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Fade from '@mui/material/Fade';
-import { MdOutlineAddShoppingCart } from "react-icons/md";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Badge } from "@mui/material";
+import { useCart } from '../../hooks/useCart';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,8 +24,10 @@ const Header = () => {
     { label: "Về chúng tôi", path: "/ve-chung-toi" }
   ];
   const [anchorEl, setAnchorEl] = useState(null);
-
   const [user, setUser] = useState(null);
+
+  const { getCartCount } = useCart();
+  const countCart = getCartCount();
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -49,6 +52,8 @@ const Header = () => {
     setUser(null);
     window.location.reload();
   };
+
+
 
 
   return (
@@ -107,7 +112,7 @@ const Header = () => {
           <img
             src="../../../public/proj_images/logo/logo.png"
             alt="Mercedes-Benz Logo"
-            onClick={() => navigate('/')} 
+            onClick={() => navigate('/')}
             style={{
               height: 90,
               width: "auto",
@@ -161,10 +166,27 @@ const Header = () => {
               >
                 Đăng ký
               </Box>
-              <ShoppingCartIcon sx={{
-                marginLeft: 1,
-                cursor: "pointer"
-                }} />
+              <IconButton
+                onClick={() => navigate('/gio-hang')}
+                sx={{
+                  color: "white",
+                  "&:hover": { color: "#cccccc" }
+                }}
+              >
+                <Badge
+                  badgeContent={countCart}
+                  sx={{
+                    '& .MuiBadge-badge': {
+                      backgroundColor: '#ee4d2d',
+                      color: '#fff',
+                      fontWeight: 700,
+                      fontSize: '0.7rem',
+                    }
+                  }}
+                >
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
             </>
           ) : (
             <>
@@ -182,6 +204,8 @@ const Header = () => {
                   }
                 }}
               >
+
+
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <Avatar
                     src={user.avatar}
@@ -257,6 +281,27 @@ const Header = () => {
                   Đăng xuất
                 </MenuItem>
               </Menu>
+              <IconButton
+                onClick={() => navigate('/gio-hang')}
+                sx={{
+                  color: "white",
+                  "&:hover": { color: "#cccccc" }
+                }}
+              >
+                <Badge
+                  badgeContent={countCart}
+                  sx={{
+                    '& .MuiBadge-badge': {
+                      backgroundColor: '#ee4d2d',
+                      color: '#fff',
+                      fontWeight: 700,
+                      fontSize: '0.7rem',
+                    }
+                  }}
+                >
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
             </>
           )}
         </Box>

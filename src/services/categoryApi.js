@@ -1,10 +1,9 @@
 import axios from 'axios';
-
-const API_URL = 'http://localhost:9999';
+import API_BASE_URL from '../config';
 
 export const getCategory = async () => {
   try {
-    const response = await axios.get(`${API_URL}/categories`);
+    const response = await axios.get(`${API_BASE_URL}/categories`);
     console.log('List Categories:', response.data);
     return response.data;
   } catch (error) {

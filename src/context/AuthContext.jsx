@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { API_URL } from '../services/authApi';
 import { jwtDecode } from 'jwt-decode';
 import authApi from '../services/authApi';
 

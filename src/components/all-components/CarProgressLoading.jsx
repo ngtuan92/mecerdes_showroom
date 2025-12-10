@@ -71,7 +71,7 @@ const CarProgressLoading = ({
                         width: 200,
                         height: 200,
                         objectFit: 'contain',
-                        marginBottom: 20,
+                        marginBottom: 3,
                         
                     }}
                 />
@@ -82,6 +82,7 @@ const CarProgressLoading = ({
                         fontWeight: 300,
                         letterSpacing: '6px',
                         fontFamily: 'serif',
+                        marginBottom: 4,
                     }}
                 >
                     MERCEDES-BENZ

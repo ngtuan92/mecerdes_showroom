@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
     Box,
     Container,
@@ -7,6 +7,7 @@ import {
     TextField,
     MenuItem
 } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 import MainLayout from '../../../layouts/user-layouts/MainLayout';
 import FilterSidebar from '../../../components/user-components/ListCars/FilterSidebar';
 import CarGrid from '../../../components/user-components/ListCars/CarGrid';
@@ -18,6 +19,8 @@ import { formatVND } from '../../../utils/formatters';
 const ListCars = () => {
     const [favorites, setFavorites] = useState(new Set());
     const [displayedCars, setDisplayedCars] = useState(6);
+    const [searchKeyword, setSearchKeyword] = useState('');
+    const location = useLocation();
     
     const { cars, loading: carsLoading } = useCars();
     const { categories, loading: categoriesLoading } = useCategories();
@@ -37,7 +40,26 @@ const ListCars = () => {
         clearFilters
     } = useCarFilters(cars, categories);
 
-    const visibleCars = filteredCars.slice(0, displayedCars);
+    const filteredBySearch = useMemo(() => {
+        const keyword = searchKeyword.trim().toLowerCase();
+        if (!keyword) return filteredCars;
+
+        return filteredCars.filter((car) =>
+            (car.name && car.name.toLowerCase().includes(keyword)) ||
+            (car.description && car.description.toLowerCase().includes(keyword))
+        );
+    }, [filteredCars, searchKeyword]);
+
+    const totalResults = filteredBySearch.length;
+    const visibleCars = filteredBySearch.slice(0, displayedCars);
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const keyword = params.get('search') || '';
+        setSearchKeyword(keyword);
+        setDisplayedCars(6); // reset pagination when keyword changes
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }, [location.search]);
 
     const handleLoadMore = () => {
         setDisplayedCars(prevCount => prevCount + 6);
@@ -99,6 +121,19 @@ const ListCars = () => {
         <MainLayout>
             <Box sx={{ py: { xs: 4, md: 6 }, backgroundColor: '#f7f7f7', minHeight: '100vh', marginTop: '100px' }}>
                 <Container maxWidth="">
+                    <Box mb={3}>
+                        <Typography
+                            sx={{
+                                fontSize: { xs: '18px', md: '22px' },
+                                fontWeight: 700,
+                                color: '#000',
+                            }}
+                        >
+                            {searchKeyword.trim()
+                                ? `Tất cả kết quả cho "${searchKeyword}" (${totalResults} kết quả)`
+                                : `Tất cả kết quả (${totalResults} kết quả)`}
+                        </Typography>
+                    </Box>
                     <Grid container spacing={3}>
                         <Grid size={3} item xs={12} md={3}>
                             <FilterSidebar
@@ -153,7 +188,7 @@ const ListCars = () => {
                                 onToggleFavorite={toggleFavorite}
                                 onViewDetails={handleViewDetails}
                                 formatVND={formatVND}
-                                hasMore={visibleCars.length < filteredCars.length}
+                                hasMore={visibleCars.length < filteredBySearch.length}
                                 onLoadMore={handleLoadMore}
                             />
                         </Grid>

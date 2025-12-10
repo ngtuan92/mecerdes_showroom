@@ -110,7 +110,10 @@
       "fuel_type": "gasoline",
       "seats": 4,
       "doors": 4,
-      "category_id": 1
+      "category_id": 1,
+      "rating": 4.8,
+      "reviews": 320,
+      "view": 15200
     },
     {
       "id": "2",
@@ -125,7 +128,10 @@
       "fuel_type": "diesel",
       "seats": 4,
       "doors": 4,
-      "category_id": 2
+      "category_id": 2,
+      "rating": 4.6,
+      "reviews": 210,
+      "view": 10450
     },
     {
       "id": "3",
@@ -140,7 +146,10 @@
       "fuel_type": "gasoline",
       "seats": 4,
       "doors": 4,
-      "category_id": 2
+      "category_id": 2,
+      "rating": 4.7,
+      "reviews": 145,
+      "view": 9870
     },
     {
       "id": "4",
@@ -155,7 +164,10 @@
       "fuel_type": "gasoline",
       "seats": 4,
       "doors": 4,
-      "category_id": 1
+      "category_id": 1,
+      "rating": 4.9,
+      "reviews": 410,
+      "view": 17400
     },
     {
       "id": "5",
@@ -170,7 +182,10 @@
       "fuel_type": "diesel",
       "seats": 4,
       "doors": 4,
-      "category_id": 1
+      "category_id": 1,
+      "rating": 4.5,
+      "reviews": 265,
+      "view": 9300
     },
     {
       "id": "6",
@@ -185,7 +200,10 @@
       "fuel_type": "diesel",
       "seats": 7,
       "doors": 4,
-      "category_id": 2
+      "category_id": 2,
+      "rating": 4.6,
+      "reviews": 198,
+      "view": 8700
     },
     {
       "id": "6",
@@ -200,7 +218,10 @@
       "fuel_type": "hybrid",
       "seats": 5,
       "doors": 4,
-      "category_id": 2
+      "category_id": 2,
+      "rating": 4.4,
+      "reviews": 132,
+      "view": 8100
     },
     {
       "id": "7",
@@ -215,7 +236,9 @@
       "fuel_type": "gasoline",
       "seats": 4,
       "doors": 4,
-      "category_id": 1
+      "category_id": 1,
+      "rating": 4.3,
+      "view": 7200
     },
     {
       "id": "8",
@@ -230,7 +253,9 @@
       "fuel_type": "hybrid",
       "seats": 4,
       "doors": 4,
-      "category_id": 1
+      "category_id": 1,
+      "rating": 4.4,
+      "view": 7600
     },
     {
       "id": "9",
@@ -245,7 +270,9 @@
       "fuel_type": "diesel",
       "seats": 5,
       "doors": 4,
-      "category_id": 2
+      "category_id": 2,
+      "rating": 4.6,
+      "view": 9800
     },
     {
       "id": "10",
@@ -260,7 +287,9 @@
       "fuel_type": "gasoline",
       "seats": 4,
       "doors": 4,
-      "category_id": 1
+      "category_id": 1,
+      "rating": 4.2,
+      "view": 6500
     },
     {
       "id": "11",
@@ -275,7 +304,9 @@
       "fuel_type": "gasoline",
       "seats": 4,
       "doors": 4,
-      "category_id": 1
+      "category_id": 1,
+      "rating": 4.5,
+      "view": 8200
     },
     {
       "id": "12",
@@ -290,7 +321,9 @@
       "fuel_type": "gasoline",
       "seats": 4,
       "doors": 4,
-      "category_id": 1
+      "category_id": 1,
+      "rating": 4.3,
+      "view": 7000
     },
     {
       "id": "13",
@@ -305,7 +338,9 @@
       "fuel_type": "gasoline",
       "seats": 7,
       "doors": 4,
-      "category_id": 2
+      "category_id": 2,
+      "rating": 4.4,
+      "view": 7900
     },
     {
       "id": "14",
@@ -320,7 +355,9 @@
       "fuel_type": "gasoline",
       "seats": 7,
       "doors": 4,
-      "category_id": 2
+      "category_id": 2,
+      "rating": 4.5,
+      "view": 8800
     },
     {
       "id": "15",
@@ -335,7 +372,9 @@
       "fuel_type": "gasoline",
       "seats": 2,
       "doors": 2,
-      "category_id": 3
+      "category_id": 3,
+      "rating": 4.6,
+      "view": 8400
     },
     {
       "id": "16",
@@ -350,7 +389,9 @@
       "fuel_type": "gasoline",
       "seats": 4,
       "doors": 4,
-      "category_id": 1
+      "category_id": 1,
+      "rating": 4.9,
+      "view": 19600
     },
     {
       "id": "17",
@@ -365,7 +406,9 @@
       "fuel_type": "electric",
       "seats": 4,
       "doors": 4,
-      "category_id": 2
+      "category_id": 2,
+      "rating": 4.8,
+      "view": 15300
     },
     {
       "id": "18",
@@ -380,7 +423,9 @@
       "fuel_type": "diesel",
       "seats": 7,
       "doors": 4,
-      "category_id": 2
+      "category_id": 2,
+      "rating": 4.7,
+      "view": 14200
     }
   ],
   "blogs": [
